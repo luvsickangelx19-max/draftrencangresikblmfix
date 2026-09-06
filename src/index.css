@@ -86,18 +86,12 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
 .category-header h3 { font-size: 18px; color: var(--deep); margin: 0; font-weight: 700; }
 .category-icon { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 10px; background: var(--pale); color: var(--cyan); flex-shrink: 0; }
 .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.service-card { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 6px; padding: 24px 22px 18px; background: #fff; transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s; display: flex; flex-direction: column; }
-.service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(13,74,90,.08); }
-.service-card:nth-child(odd) { background: var(--pale); border-color: #d0e8ed; }
-.service-card .icon-box { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 8px; color: var(--cyan); background: #fff; border: 1px solid #d0e8ed; }
-.service-card:nth-child(odd) .icon-box { background: #fff; }
-.service-card:nth-child(even) .icon-box { background: var(--pale); }
+.service-card { border: 1px solid var(--line); border-radius: 6px; padding: 24px 22px 18px; background: #fff; display: flex; flex-direction: column; }
+.service-card .icon-box { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 8px; color: var(--cyan); background: var(--pale); }
 .service-card h4 { font-size: 15px; margin: 14px 0 8px; color: var(--deep); line-height: 1.3; font-weight: 700; }
 .service-card > p { color: var(--muted); font-size: 13px; line-height: 1.6; margin: 0; flex: 1; }
 .card-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
-.service-card:nth-child(odd) .card-bottom { border-top-color: #d0e8ed; }
 .card-bottom button { border: 0; background: var(--pale); color: var(--cyan); border-radius: 5px; padding: 8px 12px; font-size: 11px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; transition: background .2s; }
-.service-card:nth-child(odd) .card-bottom button { background: #fff; }
 .card-bottom button:hover { background: #d0e8ed; }
 .card-bottom a { background: transparent; color: var(--muted); padding: 0; font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; transition: color .2s; }
 .card-bottom a:hover { color: var(--cyan); }
