@@ -35,7 +35,7 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
 .mobile-menu { display: none; background: none; border: 0; color: var(--deep); cursor: pointer; }
 
 /* HERO - Mobile first: mascot on top, text below */
-.hero { min-height: 100vh; display: flex; flex-direction: column-reverse; align-items: center; justify-content: center; text-align: center; gap: 2px; padding: 40px 20px; background: var(--primary); color: #fff; position: relative; overflow: hidden; }
+.hero { min-height: 100vh; display: flex; flex-direction: column-reverse; align-items: center; justify-content: center; text-align: center; gap: 2px; padding: 20px 20px; background: var(--primary); color: #fff; position: relative; overflow: hidden; }
 .hero-mascot-wrap { display: flex; justify-content: center; align-items: center; position: relative; z-index: 2; width: 100%; }
 .hero-mascot-wrap img { width: 250px; height: 250px; object-fit: contain; display: block; }
 .hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 500px; align-items: center; text-align: center; }
