@@ -62,19 +62,27 @@ function App() {
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: '', phone: '', service: '', date: '', note: '' });
   const [typed, setTyped] = useState('');
-  const [scrollY, setScrollY] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [vh, setVh] = useState(0);
   const fullText = 'Konco Apik Supoyo Papan Panggonan Dadi Resik';
 
   useEffect(() => {
     let raf = 0;
     const handleScroll = () => {
       cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => setScrollY(window.scrollY));
+      raf = requestAnimationFrame(() => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        setScrollProgress(max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0);
+      });
     };
+    const handleResize = () => setVh(window.innerHeight);
     handleScroll();
+    handleResize();
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(raf);
     };
   }, []);
@@ -120,16 +128,6 @@ function App() {
       </header>
 
       <main>
-        <div className="scroll-mascot" aria-hidden="true">
-          <div
-            className="scroll-mascot-inner"
-            style={{
-              transform: `translate3d(${Math.sin(scrollY * 0.005) * 15}px, ${scrollY * 1.1}px, 0) rotate(${Math.sin(scrollY * 0.005) * 4.5}deg)`,
-            }}
-          >
-            <img src="/Maskot_rencang_resik copy.png" alt="" />
-          </div>
-        </div>
         <section className="hero" id="beranda" ref={heroRef}>
           <div className="hero-orb hero-orb-1" />
           <div className="hero-orb hero-orb-2" />
@@ -149,6 +147,16 @@ function App() {
       </main>
 
       <footer id="kontak"><div className="footer-contact"><div><p className="eyebrow">HUBUNGI KAMI</p><h2>Hubungi Rencang Resik</h2><p>Punya pertanyaan seputar layanan kami? Jadwal, durasi, harga, dan konsultasi kebutuhan layanan khusus? Hubungi kami langsung melalui WhatsApp.</p></div><div className="whatsapp-card"><div className="wa-head"><img src="/pngwing.com_(5)_(1).png" alt="WhatsApp" /><span>CS Rencang Resik</span></div><strong>0822 4548 9977</strong><a href="https://wa.me/6282245489977">Chat WhatsApp Sekarang <ArrowRight size={13} /></a></div></div><div className="footer-bottom"><div><a className="footer-brand" href="#beranda"><img className="footer-logo" src="/Logo_.png" alt="Rencang Resik" /></a><p>Konco Apik Supoyo Papan Panggonan Dadi Resik</p><small>© 2026 Rencang Resik. All rights reserved.</small></div><div><h4>Tautan Cepat</h4><a href="#layanan">Layanan</a><a href="#tentang">Tentang Kami</a><a href="#area">Area Layanan</a><a href="#booking">Booking</a></div><div><h4>Kontak &amp; Layanan</h4><span><MapPin size={13} /> Solo Raya &amp; Yogyakarta</span><span><Mail size={13} /> halo@rencangresik.com</span><a className="footer-wa" href="https://wa.me/6282245489977"><Phone size={13} /> Chat WhatsApp</a></div></div></footer>
+      <div className="scroll-mascot" aria-hidden="true">
+        <div
+          className="scroll-mascot-inner"
+          style={{
+            transform: `translate3d(${Math.sin(scrollProgress * Math.PI * 3) * 15}px, ${80 + scrollProgress * Math.max(200, vh - 240)}px, 0) rotate(${Math.sin(scrollProgress * Math.PI * 3) * 4}deg)`,
+          }}
+        >
+          <img src="/Maskot_rencang_resik copy.png" alt="" />
+        </div>
+      </div>
     </div>
   );
 }
