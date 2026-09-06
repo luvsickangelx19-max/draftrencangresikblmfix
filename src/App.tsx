@@ -89,7 +89,7 @@ function App() {
 
       <main>
         <section className="hero" id="beranda" ref={heroRef}>
-          <div className="hero-copy"><p className="eyebrow">JASA KEBERSIHAN &amp; PERAWATAN</p><h1 className="hero-title">RENCANG RESIK</h1><p className="hero-lead"><span className="lead-main">Jasa Cleaning &amp; Home Service</span><span className="lead-area">Area Solo Raya &amp; Yogyakarta</span></p><p className="hero-text">Konco Apik Supoyo Papan Panggonan Dadi Resik</p><div className="hero-actions"><a className="button primary" href="#booking">Booking Sekarang <ArrowRight size={17} /></a><a className="button ghost" href="#layanan">Lihat Layanan</a></div><div className="hero-proof"><span><Check size={13} /> Aman &amp; Terpercaya</span><span><Check size={13} /> Tim Profesional</span><span><Check size={13} /> Harga Bersahabat</span></div></div>
+          <div className="hero-copy"><p className="eyebrow">JASA KEBERSIHAN &amp; PERAWATAN</p><h1 className="hero-title">RENCANG RESIK</h1><p className="hero-lead"><span className="lead-main">Jasa Cleaning &amp; Home Service</span><span className="lead-area">Area Solo Raya &amp; Yogyakarta</span></p><p className="hero-text typing-text">Konco Apik Supoyo Papan Panggonan Dadi Resik</p><div className="hero-actions"><a className="button primary" href="#booking">Booking Sekarang <ArrowRight size={17} /></a><a className="button ghost" href="#layanan">Lihat Layanan</a></div><div className="hero-proof"><span><Check size={13} /> Aman &amp; Terpercaya</span><span><Check size={13} /> Tim Profesional</span><span><Check size={13} /> Harga Bersahabat</span></div></div>
           <div className="hero-mascot-wrap animate-mascot-fly"><img src="/Maskot_rencang_resik.png" alt="Maskot Rencang Resik" /></div>
         </section>
 
