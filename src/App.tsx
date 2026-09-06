@@ -62,20 +62,20 @@ function App() {
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: '', phone: '', service: '', date: '', note: '' });
   const [typed, setTyped] = useState('');
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
   const fullText = 'Konco Apik Supoyo Papan Panggonan Dadi Resik';
 
   useEffect(() => {
+    let raf = 0;
     const handleScroll = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress(max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0);
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => setScrollY(window.scrollY));
     };
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
+      cancelAnimationFrame(raf);
     };
   }, []);
 
@@ -120,14 +120,15 @@ function App() {
       </header>
 
       <main>
-        <div
-          className="scroll-mascot"
-          aria-hidden="true"
-          style={{
-            transform: `translate3d(0, calc(${scrollProgress * 70}vh - ${scrollProgress * 150}px), 0) rotate(${scrollProgress * 8 - 4}deg)`,
-          }}
-        >
-          <img src="/Maskot_rencang_resik copy.png" alt="" />
+        <div className="scroll-mascot" aria-hidden="true">
+          <div
+            className="scroll-mascot-inner"
+            style={{
+              transform: `translate3d(${Math.sin(scrollY * 0.005) * 15}px, ${scrollY * 1.1}px, 0) rotate(${Math.sin(scrollY * 0.005) * 4.5}deg)`,
+            }}
+          >
+            <img src="/Maskot_rencang_resik copy.png" alt="" />
+          </div>
         </div>
         <section className="hero" id="beranda" ref={heroRef}>
           <div className="hero-orb hero-orb-1" />

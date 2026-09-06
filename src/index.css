@@ -23,8 +23,9 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
 [data-reveal].revealed { opacity: 1; transform: translateY(0); }
 
 .site-shell { overflow-x: hidden; }
-.scroll-mascot { position: fixed; right: 24px; top: 90px; width: 180px; height: 162px; overflow: hidden; z-index: 20; pointer-events: none; transition: transform .2s cubic-bezier(.22,1,.36,1); filter: drop-shadow(0 12px 18px rgba(0,35,60,.18)); will-change: transform; }
-.scroll-mascot img { position: absolute; top: 0; left: -8px; width: 600px; max-width: none; height: auto; display: block; }
+.scroll-mascot { position: absolute; top: 0; right: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 20; }
+.scroll-mascot .scroll-mascot-inner { position: absolute; top: 380px; right: 16px; width: 112px; will-change: transform; transition: transform .2s ease-out; filter: drop-shadow(0 10px 15px rgba(19,82,132,.3)); }
+.scroll-mascot img { width: 100%; height: auto; display: block; }
 
 /* NAVBAR */
 .navbar { height: 72px; padding: 0 8%; display: flex; align-items: center; gap: 40px; background: rgba(255,255,255,.96); backdrop-filter: blur(10px); border-bottom: 1px solid #e2f3f7; position: sticky; top: 0; z-index: 50; }
@@ -226,8 +227,8 @@ footer { background: var(--deep); color: #fff; }
 .footer-bottom > div:not(:first-child) svg { color: var(--primary); }
 .footer-wa { color: #54d5bd !important; }
 
-/* HERO - Desktop: text left, mascot right */
 @media (min-width: 768px) {
+  .scroll-mascot .scroll-mascot-inner { width: 192px; right: 64px; }
   .hero { flex-direction: column; text-align: center; justify-content: center; gap: 8px; padding: 15px 0px; min-height: auto; height: auto; }
   .hero-copy { align-items: center; max-width: 600px; text-align: center; }
   .hero-mascot-wrap { width: 100%; }
