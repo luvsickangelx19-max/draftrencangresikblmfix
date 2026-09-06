@@ -62,7 +62,15 @@ function App() {
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: '', phone: '', service: '', date: '', note: '' });
   const [typed, setTyped] = useState('');
+  const [scrollY, setScrollY] = useState(0);
   const fullText = 'Konco Apik Supoyo Papan Panggonan Dadi Resik';
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     let i = 0;
@@ -105,6 +113,15 @@ function App() {
       </header>
 
       <main>
+        <div
+          className="scroll-mascot"
+          aria-hidden="true"
+          style={{
+            transform: `translate3d(0, ${Math.max(-150, -scrollY * 0.12)}px, 0) rotate(${Math.min(5, scrollY * 0.006)}deg)`,
+          }}
+        >
+          <img src="/Maskot_rencang_resik copy.png" alt="" />
+        </div>
         <section className="hero" id="beranda" ref={heroRef}>
           <div className="hero-orb hero-orb-1" />
           <div className="hero-orb hero-orb-2" />

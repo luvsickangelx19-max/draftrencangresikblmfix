@@ -23,6 +23,8 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
 [data-reveal].revealed { opacity: 1; transform: translateY(0); }
 
 .site-shell { overflow-x: hidden; }
+.scroll-mascot { position: fixed; right: 22px; top: 58%; width: 168px; height: 150px; overflow: hidden; z-index: 20; pointer-events: none; transition: transform .18s ease-out; filter: drop-shadow(0 12px 18px rgba(0,35,60,.18)); }
+.scroll-mascot img { position: absolute; top: 0; left: -10px; width: 570px; max-width: none; height: auto; display: block; }
 
 /* NAVBAR */
 .navbar { height: 72px; padding: 0 8%; display: flex; align-items: center; gap: 40px; background: rgba(255,255,255,.96); backdrop-filter: blur(10px); border-bottom: 1px solid #e2f3f7; position: sticky; top: 0; z-index: 50; }
@@ -247,6 +249,7 @@ footer { background: var(--deep); color: #fff; }
 }
 
 @media (max-width: 768px) {
+  .scroll-mascot { display: none; }
   .top-strip { display: none; }
   .navbar { height: 64px; padding: 0 5%; gap: 16px; position: relative; }
   .navbar-logo { height: 32px; }
