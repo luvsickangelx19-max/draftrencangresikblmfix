@@ -35,7 +35,7 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
 .mobile-menu { display: none; background: none; border: 0; color: var(--deep); cursor: pointer; }
 
 /* HERO - Mobile first: mascot on top, text below */
-.hero { min-height: auto; height: auto; display: flex; flex-direction: column-reverse; align-items: center; justify-content: center; text-align: center; gap: 8px; padding: 15px 0px; background: var(--primary); color: #fff; position: relative; overflow: hidden; margin-top: 0 !important; margin-bottom: 0 !important; }
+.hero { min-height: auto; height: auto; display: flex; flex-direction: column-reverse; align-items: center; justify-content: center; text-align: center; gap: 8px; padding: 15px 0px; background: #135284; color: #fff; position: relative; overflow: hidden; margin-top: 0 !important; margin-bottom: 0 !important; }
 .hero-orb { position: absolute; width: 384px; height: 384px; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
 .hero-orb-1 { top: 0; left: 25%; background: var(--cyan); opacity: .1; }
 .hero-orb-2 { bottom: 0; right: 25%; background: var(--amber); opacity: .05; }
