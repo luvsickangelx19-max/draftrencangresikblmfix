@@ -61,6 +61,23 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: '', phone: '', service: '', date: '', note: '' });
+  const [typed, setTyped] = useState('');
+  const fullText = 'Konco Apik Supoyo Papan Panggonan Dadi Resik';
+
+  useEffect(() => {
+    let i = 0;
+    let dir: 1 | -1 = 1;
+    let timer: ReturnType<typeof setTimeout>;
+    const tick = () => {
+      i += dir;
+      setTyped(fullText.slice(0, i));
+      if (i === fullText.length) { dir = -1; timer = setTimeout(tick, 2500); return; }
+      if (i === 0) { dir = 1; timer = setTimeout(tick, 400); return; }
+      timer = setTimeout(tick, dir === 1 ? 80 : 40);
+    };
+    timer = setTimeout(tick, 600);
+    return () => clearTimeout(timer);
+  }, []);
   const selectedDay = form.date ? new Intl.DateTimeFormat('id-ID', { weekday: 'long' }).format(new Date(`${form.date}T00:00:00`)) : '';
   const heroRef = useReveal<HTMLDivElement>();
   const servicesRef = useReveal<HTMLDivElement>();
@@ -89,7 +106,7 @@ function App() {
 
       <main>
         <section className="hero" id="beranda" ref={heroRef}>
-          <div className="hero-copy"><p className="eyebrow">JASA KEBERSIHAN &amp; PERAWATAN</p><h1 className="hero-title">RENCANG RESIK</h1><p className="hero-lead"><span className="lead-main">Jasa Cleaning &amp; Home Service</span><span className="lead-area">Area Solo Raya &amp; Yogyakarta</span></p><p className="hero-text typing-text">Konco Apik Supoyo Papan Panggonan Dadi Resik</p><div className="hero-actions"><a className="button primary" href="#booking">Booking Sekarang <ArrowRight size={17} /></a><a className="button ghost" href="#layanan">Lihat Layanan</a></div><div className="hero-proof"><span><Check size={13} /> Aman &amp; Terpercaya</span><span><Check size={13} /> Tim Profesional</span><span><Check size={13} /> Harga Bersahabat</span></div></div>
+          <div className="hero-copy"><p className="eyebrow">JASA KEBERSIHAN &amp; PERAWATAN</p><h1 className="hero-title">RENCANG RESIK</h1><p className="hero-lead"><span className="lead-main">Jasa Cleaning &amp; Home Service</span><span className="lead-area">Area Solo Raya &amp; Yogyakarta</span></p><p className="hero-text typing-text">{typed}<span className="typing-cursor">|</span></p><div className="hero-actions"><a className="button primary" href="#booking">Booking Sekarang <ArrowRight size={17} /></a><a className="button ghost" href="#layanan">Lihat Layanan</a></div><div className="hero-proof"><span><Check size={13} /> Aman &amp; Terpercaya</span><span><Check size={13} /> Tim Profesional</span><span><Check size={13} /> Harga Bersahabat</span></div></div>
           <div className="hero-mascot-wrap animate-mascot-fly"><img src="/Maskot_rencang_resik.png" alt="Maskot Rencang Resik" /></div>
         </section>
 

@@ -47,12 +47,9 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
 .hero-lead .lead-main { display: block; }
 .hero-lead .lead-area { display: block; }
 .hero-text { color: rgba(255,255,255,.9); line-height: 1.6; font-size: 15px; max-width: 420px; margin: 0; font-style: italic; }
-.typing-text { display: inline-block; overflow: hidden; white-space: nowrap; max-width: none !important; border-right: 2px solid rgba(255,255,255,.7); animation: typing 4s steps(42, end) infinite alternate, blink .75s step-end infinite; }
-@keyframes typing { from { width: 0; } to { width: 100%; } }
-@keyframes blink { from, to { border-color: transparent; } 50% { border-color: rgba(255,255,255,.7); } }
-@media (max-width: 768px) {
-  .typing-text { white-space: normal; border-right: none; animation: none; width: auto !important; }
-}
+.typing-text { max-width: none; }
+.typing-cursor { margin-left: 1px; font-weight: 100; animation: blink .75s step-end infinite; }
+@keyframes blink { from, to { opacity: 0; } 50% { opacity: 1; } }
 .hero-actions { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 8px; flex-wrap: wrap; width: 100%; align-items: center; }
 .button { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 6px; font-size: 13px; font-weight: 700; transition: all .3s cubic-bezier(.22,1,.36,1); }
 .button.primary { background: var(--amber); color: #fff; }
