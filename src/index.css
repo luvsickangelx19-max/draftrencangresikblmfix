@@ -35,7 +35,7 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
 .mobile-menu { display: none; background: none; border: 0; color: var(--deep); cursor: pointer; }
 
 /* HERO - Mobile first: mascot on top, text below */
-.hero { min-height: 100vh; display: flex; flex-direction: column-reverse; align-items: center; justify-content: center; text-align: center; gap: 2px; padding: 20px 20px; background: var(--primary); color: #fff; position: relative; overflow: hidden; }
+.hero { min-height: auto; height: auto; display: flex; flex-direction: column-reverse; align-items: center; justify-content: center; text-align: center; gap: 2px; padding: 15px 0px; background: var(--primary); color: #fff; position: relative; overflow: hidden; margin-top: 0 !important; margin-bottom: 0 !important; }
 .hero-mascot-wrap { display: flex; justify-content: center; align-items: center; position: relative; z-index: 2; width: 100%; }
 .hero-mascot-wrap img { width: 250px; height: 250px; object-fit: contain; display: block; }
 .hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 500px; align-items: center; text-align: center; }
@@ -219,7 +219,7 @@ footer { background: var(--deep); color: #fff; }
 
 /* HERO - Desktop: text left, mascot right */
 @media (min-width: 768px) {
-  .hero { flex-direction: row; text-align: center; justify-content: center; gap: 2px; padding: 60px 10%; min-height: 560px; }
+  .hero { flex-direction: row; text-align: center; justify-content: center; gap: 2px; padding: 15px 0px; min-height: auto; height: auto; }
   .hero-copy { align-items: center; max-width: 600px; flex: 1; text-align: center; }
   .hero-mascot-wrap { flex: 1; }
   .hero-mascot-wrap img { width: 400px; height: 400px; }
@@ -248,7 +248,7 @@ footer { background: var(--deep); color: #fff; }
   .nav-links.open { display: flex; }
   .nav-links a::after { display: none; }
   .nav-cta { display: none; }
-  .hero { padding: 32px 20px; gap: 2px; }
+  .hero { padding: 15px 0px; gap: 2px; }
   .hero-mascot-wrap img { width: 200px; height: 200px; }
   .hero-proof { flex-wrap: wrap; gap: 8px 18px; }
   .section { padding: 64px 5%; }
