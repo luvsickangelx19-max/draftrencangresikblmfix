@@ -38,7 +38,7 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
 .hero { min-height: 600px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 64px; padding: 20px 8% 110px; background: var(--primary); color: var(--text); position: relative; overflow: hidden; }
 .hero-copy { align-self: center; position: relative; z-index: 2; }
 .eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; margin: 0 0 24px; color: var(--deep); text-transform: uppercase; }
-.hero-mascot { margin-bottom: 0; text-align: center; }
+.hero-mascot { margin-bottom: 0; text-align: center; margin-top: -80px; }
 .hero-mascot img { width: 440px; height: 440px; object-fit: contain; display: inline-block; }
 .eyebrow.dark { color: var(--cyan); }
 h1 { font-size: clamp(44px, 6.5vw, 82px); letter-spacing: -3px; line-height: .95; margin-bottom: 0; font-weight: 800; }
