@@ -4,28 +4,62 @@ import {
   Bath,
   BedDouble,
   Brush,
+  Bug,
   Building2,
   Check,
+  Droplets,
+  Gem,
+  Home,
   Mail,
   MapPin,
   Menu,
   MessageCircle,
+  Paintbrush,
   Phone,
+  Repeat,
+  Snowflake,
+  Sofa,
+  Sparkles,
   Star,
   Tv,
   Users,
+  Wind,
   X,
 } from 'lucide-react';
 
 
-const services = [
-  { icon: Brush, title: 'Cleaning Service', text: 'Layanan kebersihan menyeluruh untuk rumah, apartemen, kost, dan tempat lainnya agar selalu nyaman.', points: ['General Cleaning', 'Deep Cleaning', 'Move In / Move Out'] },
-  { icon: Bath, title: 'Laundry', text: 'Pakaian bersih dan wangi tanpa repot. Kami rawat setiap pakaian dengan sepenuh hati.', points: ['Cuci Kering', 'Cuci Setrika', 'Express Service'] },
-  { icon: BedDouble, title: 'Kasur, Springbed & Sofa', text: 'Bersihkan debu, noda, dan bakteri dari perabot kesayangan untuk tidur lebih sehat.', points: ['Kasur & Springbed', 'Sofa & Kursi', 'Carpet Cleaning'] },
-  { icon: Building2, title: 'Jasa Angkut', text: 'Butuh bantuan pindahan atau mengangkut barang? Tim kami siap membantu dengan aman.', points: ['Pindahan Rumah', 'Angkut Barang', 'Bongkar Muat'] },
-  { icon: Tv, title: 'Decuttering', text: 'Rapikan ruang dan barang-barang di rumah agar lebih lega, teratur, dan menyenangkan.', points: ['Declutter Rumah', 'Organizing', 'Sortir Barang'] },
-  { icon: Star, title: 'Repair', text: 'Layanan perbaikan ringan untuk rumah dan properti dengan teknisi berpengalaman.', points: ['Perbaikan Ringan', 'Perawatan Rumah', 'Maintenance'] },
+const serviceCategories = [
+  {
+    icon: Home,
+    title: 'Kebersihan Rumah & Hunian',
+    items: [
+      { icon: Brush, title: 'Daily Cleaning (Sekali Datang)', text: 'Solusi praktis kebersihan harian tanpa terikat kontrak. Layanan bersih-bersih standar yang cepat dan efisien — menyapu, mengepel, lap debu, merapikan kasur, dan sikat kamar mandi. Cocok untuk Anda yang sibuk dan ingin rumah atau apartemen langsung rapi dalam sekejap.' },
+      { icon: Sparkles, title: 'Deep Cleaning / Borongan', text: 'Pembersihan menyeluruh skala besar untuk hasil higienis maksimal. Layanan pembersihan total secara mendetail ke sudut yang jarang tersentuh. Ideal untuk kerak kamar mandi menahun, pasca-renovasi, pindahan rumah, hingga persiapan acara besar.' },
+      { icon: Repeat, title: 'Cleaning Langganan (Subscription)', text: 'Rumah selalu bersih konsisten dengan harga jauh lebih hemat! Solusi untuk Anda yang butuh jasa pembersihan rutin berkala (misal: seminggu 2x atau sebulan 4x). Nikmati jadwal prioritas, tim tetap yang tepercaya, dan paket harga lebih terjangkau.' },
+      { icon: BedDouble, title: 'Paket Kos (Pindahan / Serah Terima)', text: 'Solusi praktis dan hemat khusus anak kos dan pemilik persewaan. Layanan kilat untuk membersihkan kamar kos secara total. Cocok bagi penghuni baru yang ingin kamarnya steril, maupun penghuni lama yang akan pindah (checkout) agar serah terima kunci berjalan lancar.' },
+    ],
+  },
+  {
+    icon: Sofa,
+    title: 'Perawatan Furnitur & Estetik',
+    items: [
+      { icon: Sofa, title: 'Laundry Sofa & Bed', text: 'Usir tungau, debu, dan noda membandel dari tempat tidur & sofa favorit. Kami membersihkan sofa, kasur, bantal, hingga karpet dengan teknik cuci-sikat-vakum-pengeringan menggunakan cairan pembersih aman. Efektif membunuh bakteri dan tungau penyebab gatal atau alergi.' },
+      { icon: Gem, title: 'Poles Lantai', text: 'Kembalikan kilau mewah dan keindahan lantai hunian Anda. Layanan restorasi dan perawatan untuk berbagai jenis lantai — marmer, granit, teraso, hingga keramik. Kami mengangkat kusam, menyamarkan goresan halus, dan memberikan proteksi agar lantai kembali berkilau alami.' },
+      { icon: Paintbrush, title: 'Repaint (Pengecatan Ulang)', text: 'Segarkan kembali estetika dinding rumah dengan warna baru. Layanan pengecatan ulang untuk dinding interior maupun eksterior yang kusam, mengelupas, atau berjamur. Tim kami bekerja rapi, melindungi furnitur dari cipratan, dan memberikan hasil akhir halus serta tahan lama.' },
+    ],
+  },
+  {
+    icon: Wind,
+    title: 'Sanitasi & Perawatan Fasilitas',
+    items: [
+      { icon: Snowflake, title: 'Service & Cuci AC', text: 'Udara rumah lebih sejuk, bersih, dan hemat konsumsi listrik. Perawatan AC berkala mulai dari pencucian filter, pembersihan evaporator, hingga pengecekan tekanan freon oleh teknisi ahli. AC yang bersih memastikan sirkulasi udara tetap sehat untuk keluarga.' },
+      { icon: Droplets, title: 'Kuras Tandon & Ground Tank', text: 'Jaminan air bersih, higienis, dan bebas lumut untuk konsumsi keluarga. Layanan pengurasan dan pembersihan total tangki air dari endapan lumpur, lumut, kuman, dan jentik nyamuk. Kami memastikan aliran air kembali jernih dan aman untuk kebutuhan sehari-hari.' },
+      { icon: Bug, title: 'Fogging (Disinfektan & Pembasmi Hama)', text: 'Sterilisasi total untuk udara dan ruangan yang sehat serta bebas kuman. Layanan pengasapan menggunakan cairan disinfektan premium yang aman bagi manusia dan hewan peliharaan. Efektif membunuh 99.9% bakteri/virus serta membasmi serangga pengganggu di sudut ruangan.' },
+    ],
+  },
 ];
+
+const allServiceTitles = serviceCategories.flatMap((c) => c.items.map((i) => i.title));
 
 const areas = [
   { name: 'SOLO RAYA', sub: 'Kota Surakarta dan area di sekitarnya', color: 'blue', places: ['Kota Solo', 'Sukoharjo', 'Karanganyar', 'Boyolali', 'Klaten', 'Wonogiri'] },
@@ -135,13 +169,13 @@ function App() {
           <div className="hero-copy"><p className="eyebrow">JASA KEBERSIHAN &amp; PERAWATAN</p><h1 className="hero-title">RENCANG RESIK</h1><p className="hero-lead"><span className="lead-main">Jasa Cleaning &amp; Home Service</span><span className="lead-area">Area Solo Raya &amp; Yogyakarta</span></p><div className="hero-slogan"><p className="hero-text typing-text">{typed}<span className="typing-cursor">|</span></p></div><div className="hero-actions"><a className="button primary" href="#booking">Booking Sekarang <ArrowRight size={17} /></a><a className="button ghost" href="#layanan">Lihat Layanan</a></div><div className="hero-proof"><span><Check size={13} /> Aman &amp; Terpercaya</span><span><Check size={13} /> Tim Profesional</span><span><Check size={13} /> Harga Bersahabat</span></div></div>
         </section>
 
-        <section className="section services-section" id="layanan" ref={servicesRef} data-num="01"><div className="section-heading" data-reveal><p className="eyebrow dark">LAYANAN KAMI</p><h2>Layanan Rencang Resik</h2><p>Berbagai layanan untuk membantu rumah dan tempat kerja Anda selalu bersih, rapi, dan nyaman.</p></div><div className="service-grid">{services.map(({ icon: Icon, title, text, points }) => <article className="service-card" key={title} data-reveal><div className="icon-box"><Icon size={21} /></div><h3>{title}</h3><p>{text}</p><ul>{points.map((point) => <li key={point}><Check size={13} /> {point}</li>)}</ul><div className="card-bottom"><button onClick={() => updateForm('service', title)}>Pilih Layanan <ArrowRight size={13} /></button><a href="#booking">Detail <ArrowRight size={12} /></a></div></article>)}</div><div className="acp-card" data-reveal><div className="icon-box"><Users size={21} /></div><div><h3>ACP (Aluminium Composite Panel)</h3><p>Pembersihan dan perawatan ACP untuk tampilan bangunan yang selalu bersih dan profesional.</p></div><a className="small-pill" href="#booking">Pilih Layanan <ArrowRight size={12} /></a></div></section>
+        <section className="section services-section" id="layanan" ref={servicesRef} data-num="01"><div className="section-heading" data-reveal><p className="eyebrow dark">LAYANAN KAMI</p><h2>Layanan Terbaik dari Rencang Resik</h2><p>Rumah Bersih, Sehat, dan Nyaman Tanpa Ribet! Silakan pilih jenis layanan yang sesuai dengan kebutuhan hunian Anda saat ini. Tim profesional kami siap meluncur dengan peralatan lengkap.</p></div>{serviceCategories.map((cat) => <div className="service-category" key={cat.title} data-reveal><div className="category-header"><span className="category-icon"><cat.icon size={20} /></span><h3>{cat.title}</h3></div><div className="service-grid">{cat.items.map((item) => <article className="service-card" key={item.title} data-reveal><div className="icon-box"><item.icon size={21} /></div><h4>{item.title}</h4><p>{item.text}</p><div className="card-bottom"><button onClick={() => updateForm('service', item.title)}>Pilih Layanan <ArrowRight size={13} /></button><a href="#booking">Detail <ArrowRight size={12} /></a></div></article>)}</div></div>)}</section>
 
         <section className="section about-section" id="tentang" ref={aboutRef}><div className="about-copy" data-reveal><p className="eyebrow dark">MENGAPA KAMI</p><h2>Tentang Rencang Resik</h2><p>Rencang Resik hadir sebagai teman yang membantu menjaga kebersihan dan kenyamanan rumah, kantor, kost, serta ruang usaha Anda.</p><p>Kami percaya lingkungan yang bersih memberikan energi positif dan kualitas hidup yang lebih baik. Dengan tim berpengalaman dan proses kerja yang rapi, kami siap menjadi rencang andalan Anda.</p></div><div className="values">{[<Value key="v1" icon={Check} title="Praktis &amp; Anti Ribet" text="Pesan mudah, jadwal fleksibel, dan layanan langsung ke lokasi Anda." />, <Value key="v2" icon={Star} title="Terpercaya &amp; Profesional" text="Tim terlatih dengan standar kerja yang konsisten dan hasil maksimal." />, <Value key="v3" icon={MapPin} title="Area Layanan Luas" text="Hadir di Solo Raya dan Daerah Istimewa Yogyakarta." />].map((el, i) => <div key={i} data-reveal>{el}</div>)}</div></section>
 
         <section className="section area-section" id="area" ref={areaRef}><div className="section-heading" data-num="03" data-reveal><p className="eyebrow dark">JANGKAUAN KAMI</p><h2>Area Layanan Kami</h2><p>Kami siap datang ke lokasi Anda di wilayah Solo Raya dan Yogyakarta.</p></div><div className="area-grid">{areas.map((area) => <article className={`area-card ${area.color}`} key={area.name} data-reveal><div className="area-head"><MapPin size={18} /><div><h3>{area.name}</h3><p>{area.sub}</p></div><span className="available">Tersedia</span></div><div className="place-list">{area.places.map((place) => <span key={place}><Check size={12} /> {place}</span>)}</div></article>)}</div><div className="area-note" data-reveal><span className="note-icon"><MapPin size={16} /></span><div><strong>Tidak menemukan area Anda?</strong><p>Hubungi kami untuk mengecek ketersediaan layanan di lokasi Anda.</p></div><a className="dark-button" href="#kontak">Cek Area Anda <ArrowRight size={14} /></a></div></section>
 
-        <section className="booking-section" id="booking" ref={bookingRef}><div className="section-heading" data-reveal><p className="eyebrow dark">PESAN LAYANAN KAMI</p><h2>Booking Layanan</h2><p>Isi kebutuhan Anda, dan kami akan menghubungi Anda melalui WhatsApp.</p></div><form className="booking-form" onSubmit={submitBooking} data-reveal><div className="form-row"><label>Nama Lengkap *<input required value={form.name} onChange={(event) => updateForm('name', event.target.value)} placeholder="Nama Anda" /></label><label>Nomor WhatsApp *<input required value={form.phone} onChange={(event) => updateForm('phone', event.target.value)} placeholder="08xxxxxxxxxx" /></label></div><div className="form-row"><label>Pilih Layanan *<select required value={form.service} onChange={(event) => updateForm('service', event.target.value)}><option value="">Pilih layanan</option>{services.map((service) => <option key={service.title}>{service.title}</option>)}</select></label><label>Tanggal Layanan *<input required type="date" value={form.date} onChange={(event) => updateForm('date', event.target.value)} /></label></div><fieldset><legend>Pilih Jenis Layanan</legend><div className="radio-grid">{['Cleaning Service', 'Laundry', 'Kasur, Sofa & Karpet', 'Jasa Angkut', 'Decuttering', 'Repair', 'ACP Panel'].map((item) => <label key={item}><span className="radio-custom" /><input type="radio" name="kind" defaultChecked={item === 'Cleaning Service'} /> {item}</label>)}</div></fieldset><label>Lokasi / Alamat Lengkap *<input required placeholder="Alamat lengkap lokasi layanan" /></label><div className="form-row"><label>Hari Layanan *<input value={selectedDay} readOnly placeholder="Pilih tanggal terlebih dahulu" /></label><label>Waktu yang Diinginkan <input type="time" /></label></div><label>Detail Kebutuhan / Catatan Khusus<textarea value={form.note} onChange={(event) => updateForm('note', event.target.value)} placeholder="Ceritakan kebutuhan Anda"></textarea></label><div className="booking-summary"><div><strong>Preview Pesan WhatsApp</strong><span>Pesan Anda akan dikirim ke tim Rencang Resik</span></div><div className="summary-preview">Halo Rencang Resik,<br />Saya ingin memesan layanan <b>{form.service || 'Cleaning Service'}</b>.<br />Nama: {form.name || 'Nama Anda'}<br />Terima kasih.</div></div><button className="submit-button" type="submit"><MessageCircle size={17} /> {sent ? 'Pesan Siap Dikirim' : 'Booking via WhatsApp (Instan)'}</button>{sent && <p className="success-message"><Check size={15} /> Terima kasih, permintaan booking Anda sudah tercatat. Tim kami akan segera menghubungi Anda.</p>}</form></section>
+        <section className="booking-section" id="booking" ref={bookingRef}><div className="section-heading" data-reveal><p className="eyebrow dark">PESAN LAYANAN KAMI</p><h2>Booking Layanan</h2><p>Isi kebutuhan Anda, dan kami akan menghubungi Anda melalui WhatsApp.</p></div><form className="booking-form" onSubmit={submitBooking} data-reveal><div className="form-row"><label>Nama Lengkap *<input required value={form.name} onChange={(event) => updateForm('name', event.target.value)} placeholder="Nama Anda" /></label><label>Nomor WhatsApp *<input required value={form.phone} onChange={(event) => updateForm('phone', event.target.value)} placeholder="08xxxxxxxxxx" /></label></div><div className="form-row"><label>Pilih Layanan *<select required value={form.service} onChange={(event) => updateForm('service', event.target.value)}><option value="">Pilih layanan</option>{allServiceTitles.map((title) => <option key={title}>{title}</option>)}</select></label><label>Tanggal Layanan *<input required type="date" value={form.date} onChange={(event) => updateForm('date', event.target.value)} /></label></div><fieldset><legend>Pilih Jenis Layanan</legend><div className="radio-grid">{allServiceTitles.map((item) => <label key={item}><span className="radio-custom" /><input type="radio" name="kind" defaultChecked={item === 'Daily Cleaning (Sekali Datang)'} /> {item}</label>)}</div></fieldset><label>Lokasi / Alamat Lengkap *<input required placeholder="Alamat lengkap lokasi layanan" /></label><div className="form-row"><label>Hari Layanan *<input value={selectedDay} readOnly placeholder="Pilih tanggal terlebih dahulu" /></label><label>Waktu yang Diinginkan <input type="time" /></label></div><label>Detail Kebutuhan / Catatan Khusus<textarea value={form.note} onChange={(event) => updateForm('note', event.target.value)} placeholder="Ceritakan kebutuhan Anda"></textarea></label><div className="booking-summary"><div><strong>Preview Pesan WhatsApp</strong><span>Pesan Anda akan dikirim ke tim Rencang Resik</span></div><div className="summary-preview">Halo Rencang Resik,<br />Saya ingin memesan layanan <b>{form.service || 'Cleaning Service'}</b>.<br />Nama: {form.name || 'Nama Anda'}<br />Terima kasih.</div></div><button className="submit-button" type="submit"><MessageCircle size={17} /> {sent ? 'Pesan Siap Dikirim' : 'Booking via WhatsApp (Instan)'}</button>{sent && <p className="success-message"><Check size={15} /> Terima kasih, permintaan booking Anda sudah tercatat. Tim kami akan segera menghubungi Anda.</p>}</form></section>
 
         <section className="section social-section" ref={socialRef}><div className="section-heading" data-num="05" data-reveal><p className="eyebrow dark">TETAP TERHUBUNG</p><h2>Ikuti Rencang Resik</h2><p>Ikuti Rencang Resik untuk mendapatkan info layanan, promo menarik, penawaran spesial, dan update terbaru dari kami</p></div><div className="social-grid"><Social type="instagram" title="Instagram" href="https://www.instagram.com/rencangresik?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" /><Social type="threads" title="Threads" href="https://www.threads.com/@rencangresik" /><Social type="tiktok" title="TikTok" href="https://www.tiktok.com/@rencangresiksolo?is_from_webapp=1&sender_device=pc" /></div></section>
       </main>
