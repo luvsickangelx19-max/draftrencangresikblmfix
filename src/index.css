@@ -43,7 +43,9 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
 .eyebrow.dark { color: var(--cyan); }
 .hero h1 { font-size: clamp(26px, 3.5vw, 42px); letter-spacing: -1.5px; line-height: 1.1; margin: 0; font-weight: 900; color: #fff; text-transform: uppercase; text-shadow: 0 0 20px rgba(255,255,255,.5), 0 0 40px rgba(0,173,239,.4), 0 0 60px rgba(0,173,239,.3); white-space: nowrap; }
 .hero-title { text-align: center; }
-.hero-lead { font-size: clamp(14px, 1.8vw, 18px); font-weight: 700; max-width: 460px; margin: 0; line-height: 1.35; color: rgba(255,255,255,.95); white-space: nowrap; }
+.hero-lead { font-size: clamp(14px, 1.8vw, 18px); font-weight: 700; max-width: 460px; margin: 0; line-height: 1.25; color: rgba(255,255,255,.95); }
+.hero-lead .lead-main { display: block; }
+.hero-lead .lead-area { display: block; }
 .hero-text { color: rgba(255,255,255,.9); line-height: 1.6; font-size: 15px; max-width: 420px; margin: 0; font-style: italic; }
 .hero-actions { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 8px; flex-wrap: wrap; width: 100%; align-items: center; }
 .button { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 6px; font-size: 13px; font-weight: 700; transition: all .3s cubic-bezier(.22,1,.36,1); }
