@@ -154,7 +154,7 @@ function App() {
             transform: `translate3d(${Math.sin(scrollProgress * Math.PI * 3) * 15}px, ${80 + scrollProgress * Math.max(200, vh - 240)}px, 0) rotate(${Math.sin(scrollProgress * Math.PI * 3) * 4}deg)`,
           }}
         >
-          <img src="/Maskot_rencang_resik copy.png" alt="" />
+          <img src="/Maskot_rencang_resik.png" alt="" />
         </div>
       </div>
     </div>
