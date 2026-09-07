@@ -84,10 +84,12 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
 .service-category { max-width: 1200px; margin: 0 auto 32px; }
 .category-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--line); }
 .category-header h3 { font-size: 18px; color: var(--deep); margin: 0; font-weight: 700; }
-.category-icon { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 10px; background: var(--pale); color: var(--cyan); flex-shrink: 0; }
+.category-icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 10px; background: var(--pale); flex-shrink: 0; }
+.category-icon img { width: 32px; height: 32px; object-fit: contain; display: block; }
 .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .service-card { border: 1px solid var(--line); border-radius: 6px; padding: 24px 22px 18px; background: #fff; display: flex; flex-direction: column; }
-.service-card .icon-box { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 8px; color: var(--cyan); background: var(--pale); }
+.service-card .icon-box { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 10px; background: var(--pale); }
+.service-card .icon-box img { width: 38px; height: 38px; object-fit: contain; display: block; }
 .service-card h4 { font-size: 15px; margin: 14px 0 8px; color: var(--deep); line-height: 1.3; font-weight: 700; }
 .service-card > p { color: var(--muted); font-size: 13px; line-height: 1.6; margin: 0; flex: 1; }
 .card-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
