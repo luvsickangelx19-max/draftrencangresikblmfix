@@ -30,10 +30,11 @@ import {
 
 const serviceCategories = [
   {
-    icon: Home,
+    icon: () => <img src="/kebersihanicon.png" alt="Kebersihan" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />,
     title: 'Kebersihan Rumah & Hunian',
     items: [
-      { icon: Brush, title: 'Daily Cleaning (Sekali Datang)', text: 'Solusi praktis kebersihan harian tanpa terikat kontrak. Layanan bersih-bersih standar yang cepat dan efisien — menyapu, mengepel, lap debu, merapikan kasur, dan sikat kamar mandi. Cocok untuk Anda yang sibuk dan ingin rumah atau apartemen langsung rapi dalam sekejap.' },
+      { icon: () => <img src="/dailyicon.png" alt="Daily" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />,
+ title: 'Daily Cleaning (Sekali Datang)',  text: 'Solusi praktis kebersihan harian tanpa terikat kontrak. Layanan bersih-bersih standar yang cepat dan efisien — menyapu, mengepel, lap debu, merapikan kasur, dan sikat kamar mandi. Cocok untuk Anda yang sibuk dan ingin rumah atau apartemen langsung rapi dalam sekejap.' },
       { icon: () => <img src="/deepcleaningicon.png" alt="Deep Cleaning" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />,
  title: 'Deep Cleaning / Borongan', text: 'Pembersihan menyeluruh skala besar untuk hasil higienis maksimal. Layanan pembersihan total secara mendetail ke sudut yang jarang tersentuh. Ideal untuk kerak kamar mandi menahun, pasca-renovasi, pindahan rumah, hingga persiapan acara besar.' },
       { icon: () => <img src="/cleaninglanggananicon.png" alt="Cleaning Langganan" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />, title: 'Cleaning Langganan (Subscription)',  text: 'Rumah selalu bersih konsisten dengan harga jauh lebih hemat! Solusi untuk Anda yang butuh jasa pembersihan rutin berkala (misal: seminggu 2x atau sebulan 4x). Nikmati jadwal prioritas, tim tetap yang tepercaya, dan paket harga lebih terjangkau.' },
@@ -48,7 +49,8 @@ const serviceCategories = [
  title: 'Laundry Sofa & Bed',  text: 'Usir tungau, debu, dan noda membandel dari tempat tidur & sofa favorit. Kami membersihkan sofa, kasur, bantal, hingga karpet dengan teknik cuci-sikat-vakum-pengeringan menggunakan cairan pembersih aman. Efektif membunuh bakteri dan tungau penyebab gatal atau alergi.' },
       { icon: () => <img src="/poleslantaiicon.png" alt="Poles Lantai" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />,
  title: 'Poles Lantai',  text: 'Kembalikan kilau mewah dan keindahan lantai hunian Anda. Layanan restorasi dan perawatan untuk berbagai jenis lantai — marmer, granit, teraso, hingga keramik. Kami mengangkat kusam, menyamarkan goresan halus, dan memberikan proteksi agar lantai kembali berkilau alami.' },
-      { icon: Paintbrush, title: 'Repaint (Pengecatan Ulang)', text: 'Segarkan kembali estetika dinding rumah dengan warna baru. Layanan pengecatan ulang untuk dinding interior maupun eksterior yang kusam, mengelupas, atau berjamur. Tim kami bekerja rapi, melindungi furnitur dari cipratan, dan memberikan hasil akhir halus serta tahan lama.' },
+      { icon: () => <img src="/repainticon.png" alt="Repaint" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />,
+ title: 'Repaint (Pengecatan Ulang)',  text: 'Segarkan kembali estetika dinding rumah dengan warna baru. Layanan pengecatan ulang untuk dinding interior maupun eksterior yang kusam, mengelupas, atau berjamur. Tim kami bekerja rapi, melindungi furnitur dari cipratan, dan memberikan hasil akhir halus serta tahan lama.' },
     ],
   },
   {
@@ -57,7 +59,8 @@ const serviceCategories = [
     items: [
       { icon: () => <img src="/cuciacicon.png" alt="Cuci Ac" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />,
  title: 'Service & Cuci AC',   text: 'Udara rumah lebih sejuk, bersih, dan hemat konsumsi listrik. Perawatan AC berkala mulai dari pencucian filter, pembersihan evaporator, hingga pengecekan tekanan freon oleh teknisi ahli. AC yang bersih memastikan sirkulasi udara tetap sehat untuk keluarga.' },
-      { icon: Droplets, title: 'Kuras Tandon & Ground Tank', text: 'Jaminan air bersih, higienis, dan bebas lumut untuk konsumsi keluarga. Layanan pengurasan dan pembersihan total tangki air dari endapan lumpur, lumut, kuman, dan jentik nyamuk. Kami memastikan aliran air kembali jernih dan aman untuk kebutuhan sehari-hari.' },
+     { icon: () => <img src="/tandonicon.png" alt="Tandon" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />,
+ title: 'Kuras Tandon & Ground Tank',  text: 'Jaminan air bersih, higienis, dan bebas lumut untuk konsumsi keluarga. Layanan pengurasan dan pembersihan total tangki air dari endapan lumpur, lumut, kuman, dan jentik nyamuk. Kami memastikan aliran air kembali jernih dan aman untuk kebutuhan sehari-hari.' },
       { icon: () => <img src="/foggingicon.png" alt="Fogging" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />,
  title: 'Fogging (Disinfektan & Pembasmi Hama)', text: 'Sterilisasi total untuk udara dan ruangan yang sehat serta bebas kuman. Layanan pengasapan menggunakan cairan disinfektan premium yang aman bagi manusia dan hewan peliharaan. Efektif membunuh 99.9% bakteri/virus serta membasmi serangga pengganggu di sudut ruangan.' },
     ],
