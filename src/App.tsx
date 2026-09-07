@@ -193,7 +193,7 @@ function App() {
               </p>
               <p style={{ fontSize: '0.95em', color: '#777' }}>
                  Periksa apakah daerah rumah Anda masuk ke dalam jangkaun layanan kami pada daftar di bawah ini. Cukup pesan lewat WhatsApp, tim kami yang akan datang membawa seluruh peralatan lengkap!
-                </p>
+               </p>
               </div>
           </div>
         </section>
