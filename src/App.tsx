@@ -34,7 +34,8 @@ const serviceCategories = [
     title: 'Kebersihan Rumah & Hunian',
     items: [
       { icon: Brush, title: 'Daily Cleaning (Sekali Datang)', text: 'Solusi praktis kebersihan harian tanpa terikat kontrak. Layanan bersih-bersih standar yang cepat dan efisien — menyapu, mengepel, lap debu, merapikan kasur, dan sikat kamar mandi. Cocok untuk Anda yang sibuk dan ingin rumah atau apartemen langsung rapi dalam sekejap.' },
-      { icon: () => <img src="/deepcleaningicon.png" alt="Deep Cleaning" className="w-50 h-50 object-contain" />, title: 'Deep Cleaning / Borongan', text: 'Pembersihan menyeluruh skala besar untuk hasil higienis maksimal. Layanan pembersihan total secara mendetail ke sudut yang jarang tersentuh. Ideal untuk kerak kamar mandi menahun, pasca-renovasi, pindahan rumah, hingga persiapan acara besar.' },
+      { icon: () => <img src="/deepcleaningicon.png" alt="Deep Cleaning" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />,
+ title: 'Deep Cleaning / Borongan', text: 'Pembersihan menyeluruh skala besar untuk hasil higienis maksimal. Layanan pembersihan total secara mendetail ke sudut yang jarang tersentuh. Ideal untuk kerak kamar mandi menahun, pasca-renovasi, pindahan rumah, hingga persiapan acara besar.' },
       { icon: Repeat, title: 'Cleaning Langganan (Subscription)', text: 'Rumah selalu bersih konsisten dengan harga jauh lebih hemat! Solusi untuk Anda yang butuh jasa pembersihan rutin berkala (misal: seminggu 2x atau sebulan 4x). Nikmati jadwal prioritas, tim tetap yang tepercaya, dan paket harga lebih terjangkau.' },
       { icon: BedDouble, title: 'Paket Kos (Pindahan / Serah Terima)', text: 'Solusi praktis dan hemat khusus anak kos dan pemilik persewaan. Layanan kilat untuk membersihkan kamar kos secara total. Cocok bagi penghuni baru yang ingin kamarnya steril, maupun penghuni lama yang akan pindah (checkout) agar serah terima kunci berjalan lancar.' },
     ],
