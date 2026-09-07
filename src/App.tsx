@@ -181,17 +181,21 @@ function App() {
 
         <section className="section about-section" id="tentang" ref={aboutRef}><div className="about-copy" data-reveal><p className="eyebrow dark">MENGAPA KAMI</p><h2>Tentang Rencang Resik</h2><p>Rencang Resik hadir sebagai teman yang membantu menjaga kebersihan dan kenyamanan rumah, kantor, kost, serta ruang usaha Anda.</p><p>Kami percaya lingkungan yang bersih memberikan energi positif dan kualitas hidup yang lebih baik. Dengan tim berpengalaman dan proses kerja yang rapi, kami siap menjadi rencang andalan Anda.</p></div><div className="values">{[<Value key="v1" icon={Check} title="Praktis &amp; Anti Ribet" text="Pesan mudah, jadwal fleksibel, dan layanan langsung ke lokasi Anda." />, <Value key="v2" icon={Star} title="Terpercaya &amp; Profesional" text="Tim terlatih dengan standar kerja yang konsisten dan hasil maksimal." />, <Value key="v3" icon={MapPin} title="Area Layanan Luas" text="Hadir di Solo Raya dan Daerah Istimewa Yogyakarta." />].map((el, i) => <div key={i} data-reveal>{el}</div>)}</div></section>
 
-               <section className="section area-section" id="area" ref={areaRef}>
+                     <section className="section area-section" id="area" ref={areaRef}>
           <div className="section-heading" data-num="03" data-reveal>
             <p className="eyebrow dark">JANGKAUAN KAMI</p>
             <h2>Area Layanan Kami</h2>
             
-            <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', color: '#666', lineHeight: '1.6' }}>
+           <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', color: '#666', lineHeight: '1.6' }}>
               <p style={{ marginBottom: '12px' }}>
                 Komitmen kami adalah menghadirkan hunian yang bersih, sehat, dan nyaman di mana pun Anda berada. <strong>Rencang Resik</strong> melayani berbagai wilayah strategis untuk memastikan Anda mendapatkan pelayanan <em>cleaning service</em> terbaik secara cepat dan tepat waktu.
               </p>
               <p style={{ fontSize: '0.95em', color: '#777' }}>
-                Periksa apakah daerah rumah Anda masuk ke dalam jangkaun layanan kami pada daftar di bawah ini. Cukup pesan lewat WhatsApp, tim kami yang akan datang membawa seluruh peralatan lengkap!</p> </section>
+                Periksa apakah daerah rumah Anda masuk ke dalam jangkaun layanan kami pada daftar di bawah ini. Cukup pesan lewat WhatsApp, tim kami yang akan datang membawa seluruh peralatan lengkap!
+              </p>
+            </div>
+          </div>
+        </section>
 
 .</p></div><div className="area-grid">{areas.map((area) => <article className={`area-card ${area.color}`} key={area.name} data-reveal><div className="area-head"><MapPin size={18} /><div><h3>{area.name}</h3><p>{area.sub}</p></div><span className="available">Tersedia</span></div><div className="place-list">{area.places.map((place) => <span key={place}><Check size={12} /> {place}</span>)}</div></article>)}</div><div className="area-note" data-reveal><span className="note-icon"><MapPin size={16} /></span><div><strong>Tidak menemukan area Anda?</strong><p>Hubungi kami untuk mengecek ketersediaan layanan di lokasi Anda.</p></div><a className="dark-button" href="#kontak">Cek Area Anda <ArrowRight size={14} /></a></div></section>
 
