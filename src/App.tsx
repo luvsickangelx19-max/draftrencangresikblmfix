@@ -192,11 +192,11 @@ function App() {
                 Komitmen kami adalah menghadirkan hunian yang bersih, sehat, dan nyaman di mana pun Anda berada. <strong>Rencang Resik</strong> melayani berbagai wilayah strategis untuk memastikan Anda mendapatkan pelayanan <em>cleaning service</em> terbaik secara cepat dan tepat waktu.
               </p>
               <p style={{ fontSize: '0.95em', color: '#777' }}>
-                 Periksa apakah daerah rumah Anda masuk ke dalam jangkaun layanan kami pada daftar di bawah ini. Cukup pesan lewat WhatsApp, tim kami yang akan datang membawa seluruh peralatan lengkap!
-                </p>
-              </div>
+                              Periksa apakah daerah rumah Anda masuk ke dalam jangkaun layanan kami pada daftar di bawah ini. Cukup pesan lewat WhatsApp, tim kami yang akan datang membawa seluruh peralatan lengkap!
+            </p>
           </div>
-        </section>
+        </div>
+      </section>
 
 .</p></div><div className="area-grid">{areas.map((area) => <article className={`area-card ${area.color}`} key={area.name} data-reveal><div className="area-head"><MapPin size={18} /><div><h3>{area.name}</h3><p>{area.sub}</p></div><span className="available">Tersedia</span></div><div className="place-list">{area.places.map((place) => <span key={place}><Check size={12} /> {place}</span>)}</div></article>)}</div><div className="area-note" data-reveal><span className="note-icon"><MapPin size={16} /></span><div><strong>Tidak menemukan area Anda?</strong><p>Hubungi kami untuk mengecek ketersediaan layanan di lokasi Anda.</p></div><a className="dark-button" href="#kontak">Cek Area Anda <ArrowRight size={14} /></a></div></section>
 
