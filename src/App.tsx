@@ -35,8 +35,7 @@ const serviceCategories = [
     items: [
       { icon: () => <img src="/dailyicon.png" alt="Daily" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />,
  title: 'Daily Cleaning (Sekali Datang)',  text: 'Solusi praktis kebersihan harian tanpa terikat kontrak.
-Layanan bersih-bersih standar yang cepat dan efisien (menyapu, mengepel, lap debu, merapikan kasur, dan sikat kamar mandi). Cocok untuk Anda yang sibuk dan ingin rumah atau apartemen langsung rapi dalam sekejap.
-.' },
+Layanan bersih-bersih standar yang cepat dan efisien (menyapu, mengepel, lap debu, merapikan kasur, dan sikat kamar mandi). Cocok untuk Anda yang sibuk dan ingin rumah atau apartemen langsung rapi dalam sekejap.' },
       { icon: () => <img src="/deepcleaningicon.png" alt="Deep Cleaning" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />,
  title: 'Deep Cleaning / Borongan', text: 'Pembersihan menyeluruh skala besar untuk hasil higienis maksimal. Layanan pembersihan total secara mendetail ke sudut yang jarang tersentuh. Ideal untuk kerak kamar mandi menahun, pasca-renovasi, pindahan rumah, hingga persiapan acara besar.' },
       { icon: () => <img src="/cleaninglanggananicon.png" alt="Cleaning Langganan" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />, title: 'Cleaning Langganan (Subscription)',  text: 'Rumah selalu bersih konsisten dengan harga jauh lebih hemat! Solusi untuk Anda yang butuh jasa pembersihan rutin berkala (misal: seminggu 2x atau sebulan 4x). Nikmati jadwal prioritas, tim tetap yang tepercaya, dan paket harga lebih terjangkau.' },
