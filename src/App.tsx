@@ -55,9 +55,11 @@ const serviceCategories = [
      icon: () => <img src="/sanitasiicon.png" alt="Sanitasi" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />,
     title: 'Sanitasi & Perawatan Fasilitas',
     items: [
-      { icon: Snowflake, title: 'Service & Cuci AC', text: 'Udara rumah lebih sejuk, bersih, dan hemat konsumsi listrik. Perawatan AC berkala mulai dari pencucian filter, pembersihan evaporator, hingga pengecekan tekanan freon oleh teknisi ahli. AC yang bersih memastikan sirkulasi udara tetap sehat untuk keluarga.' },
+      { icon: () => <img src="/cuciacicon.png" alt="Cuci Ac" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />,
+ title: 'Service & Cuci AC',   text: 'Udara rumah lebih sejuk, bersih, dan hemat konsumsi listrik. Perawatan AC berkala mulai dari pencucian filter, pembersihan evaporator, hingga pengecekan tekanan freon oleh teknisi ahli. AC yang bersih memastikan sirkulasi udara tetap sehat untuk keluarga.' },
       { icon: Droplets, title: 'Kuras Tandon & Ground Tank', text: 'Jaminan air bersih, higienis, dan bebas lumut untuk konsumsi keluarga. Layanan pengurasan dan pembersihan total tangki air dari endapan lumpur, lumut, kuman, dan jentik nyamuk. Kami memastikan aliran air kembali jernih dan aman untuk kebutuhan sehari-hari.' },
-      { icon: Bug, title: 'Fogging (Disinfektan & Pembasmi Hama)', text: 'Sterilisasi total untuk udara dan ruangan yang sehat serta bebas kuman. Layanan pengasapan menggunakan cairan disinfektan premium yang aman bagi manusia dan hewan peliharaan. Efektif membunuh 99.9% bakteri/virus serta membasmi serangga pengganggu di sudut ruangan.' },
+      { icon: () => <img src="/foggingicon.png" alt="Fogging" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />,
+ title: 'Fogging (Disinfektan & Pembasmi Hama)', text: 'Sterilisasi total untuk udara dan ruangan yang sehat serta bebas kuman. Layanan pengasapan menggunakan cairan disinfektan premium yang aman bagi manusia dan hewan peliharaan. Efektif membunuh 99.9% bakteri/virus serta membasmi serangga pengganggu di sudut ruangan.' },
     ],
   },
 ];
