@@ -52,7 +52,7 @@ const serviceCategories = [
     ],
   },
   {
-     icon: () => <img src="/sanita.png" alt="Sanita" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />,
+     icon: () => <img src="/sanitasiicon.png" alt="Sanitasi" style={{ width: '50px', height: '50px', objectFit: 'contain' }} />,
     title: 'Sanitasi & Perawatan Fasilitas',
     items: [
       { icon: Snowflake, title: 'Service & Cuci AC', text: 'Udara rumah lebih sejuk, bersih, dan hemat konsumsi listrik. Perawatan AC berkala mulai dari pencucian filter, pembersihan evaporator, hingga pengecekan tekanan freon oleh teknisi ahli. AC yang bersih memastikan sirkulasi udara tetap sehat untuk keluarga.' },
