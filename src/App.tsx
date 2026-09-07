@@ -192,7 +192,7 @@ function App() {
                 Komitmen kami adalah menghadirkan hunian yang bersih, sehat, dan nyaman di mana pun Anda berada. <strong>Rencang Resik</strong> melayani berbagai wilayah strategis untuk memastikan Anda mendapatkan pelayanan <em>cleaning service</em> terbaik secara cepat dan tepat waktu.
               </p>
               <p style={{ fontSize: '0.95em', color: '#777' }}>
-       Periksa apakah daerah rumah Anda masuk ke dalam jangkaun layanan kami pada daftar di bawah ini. Cukup pesan lewat WhatsApp, tim kami yang akan datang membawa seluruh peralatan lengkap!
+                Periksa apakah daerah rumah Anda masuk ke dalam jangkaun layanan kami pada daftar di bawah ini. Cukup pesan lewat WhatsApp, tim kami yang akan datang membawa seluruh peralatan lengkap!
             </p>
           </div>
  </div>
