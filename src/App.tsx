@@ -8,10 +8,8 @@ import {
   MapPin,
   Menu,
   MessageCircle,
-  Package,
   Phone,
   Star,
-  Truck,
   X,
 } from 'lucide-react';
 
@@ -83,11 +81,11 @@ const serviceCategories: ServiceCategory[] = [
     ],
   },
   {
-    img: '',
-    icon: Truck,
+    img: '/assets/icons/jasaangkut2icon.png',
+    icon: undefined,
     title: 'Packing Pindahan & Jasa Angkut',
     items: [
-      { img: '', icon: Package, title: 'Layanan Packing Pindahan dan Jasa Angkut', text: '*Layanan packing barang yang rapi, aman, dan sistematis.* Kami paham bahwa setiap barang Anda berharga. Oleh karena itu, tim profesional kami akan memastikan seluruh proses pengepakan dilakukan dengan standar terbaik agar barang Anda sampai di lokasi baru tanpa lecet, pecah, atau rusak. Jasa pindahan dengan armada Pickup atau bisa disesuaikan dengan kebutuhan, fleksibel. Pelanggan bisa meminta disediakan kardus/bubble wrap dari kami jika dibutuhkan.' },
+      { img: '/assets/icons/jasaangkut1icon.png', icon: undefined, title: 'Layanan Packing Pindahan dan Jasa Angkut', text: '*Layanan packing barang yang rapi, aman, dan sistematis.* Kami paham bahwa setiap barang Anda berharga. Oleh karena itu, tim profesional kami akan memastikan seluruh proses pengepakan dilakukan dengan standar terbaik agar barang Anda sampai di lokasi baru tanpa lecet, pecah, atau rusak. Jasa pindahan dengan armada Pickup atau bisa disesuaikan dengan kebutuhan, fleksibel. Pelanggan bisa meminta disediakan kardus/bubble wrap dari kami jika dibutuhkan.' },
     ],
   },
   {
