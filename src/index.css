@@ -65,7 +65,7 @@ h1, h2, h3, h4 { font-family: inherit; }
 .section-heading h2 { font-size: clamp(28px, 4vw, 42px); letter-spacing: -1.5px; margin-bottom: 14px; color: var(--deep); line-height: 1.1; }
 .section-heading > p:last-child { color: var(--muted); font-size: 14px; line-height: 1.7; }
 .services-section .section-heading { text-align: left; margin-left: 0; margin-right: auto; }
-.services-section .section-heading::before, .area-section .section-heading::before, .social-section .section-heading::before { content: none; }
+
 
 /* SERVICES */
 .services-section { background: #fff; }
@@ -89,7 +89,6 @@ h1, h2, h3, h4 { font-family: inherit; }
 /* ABOUT */
 .about-section { background: var(--pale); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; padding: 100px 8%; align-items: center; position: relative; }
 .about-copy { max-width: 480px; position: relative; z-index: 1; }
-.about-copy .eyebrow.dark::before { content: none; }
 .about-copy h2 { font-size: clamp(28px, 4vw, 42px); letter-spacing: -1.5px; margin-bottom: 20px; color: var(--deep); line-height: 1.1; }
 .about-copy > p { color: var(--muted); font-size: 14px; line-height: 1.7; margin-bottom: 16px; }
 .stats { display: flex; gap: 48px; margin-top: 40px; }
@@ -106,9 +105,6 @@ h1, h2, h3, h4 { font-family: inherit; }
 .area-section { background: #fff; padding-bottom: 80px; }
 .area-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; }
 .area-card { padding: 28px; border-radius: 8px; border: 1px solid var(--line); background: #fff; position: relative; overflow: hidden; transition: box-shadow .3s; }
-.area-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; }
-.area-card.blue::before { background: var(--cyan); }
-.area-card.mint::before { background: var(--mint); }
 .area-card:hover { box-shadow: 0 12px 28px rgba(13,74,90,.08); }
 .area-head { display: flex; align-items: center; gap: 12px; }
 .area-head > svg { color: var(--cyan); flex-shrink: 0; }
@@ -129,9 +125,7 @@ h1, h2, h3, h4 { font-family: inherit; }
 /* BOOKING */
 .booking-section { background: var(--pale); padding: 96px 8%; display: grid; grid-template-columns: 5fr 7fr; gap: 80px; max-width: 1400px; margin: 0 auto; align-items: start; }
 .booking-section .section-heading { text-align: left; margin: 0; max-width: none; position: sticky; top: 100px; }
-.booking-section .section-heading::before { content: none; }
 .booking-section .eyebrow.dark { color: var(--primary); }
-.booking-section .eyebrow.dark::after { background: var(--primary); opacity: .25; }
 .booking-section h2 { color: var(--deep); }
 .booking-section .section-heading > p:last-child { color: var(--muted); }
 .booking-form { background: #fff; border-radius: 10px; padding: 36px 40px 40px; box-shadow: 0 24px 60px rgba(0,0,0,.2); }
@@ -183,7 +177,6 @@ h1, h2, h3, h4 { font-family: inherit; }
 footer { background: var(--deep); color: #fff; }
 .footer-contact { background: var(--primary); padding: 64px 8%; display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: center; }
 .footer-contact .eyebrow { color: rgba(255,255,255,.7); }
-.footer-contact .eyebrow::after { background: rgba(255,255,255,.3); }
 .footer-contact h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 14px; letter-spacing: -1px; color: #fff; line-height: 1.15; }
 .footer-contact p { color: rgba(255,255,255,.8); max-width: 480px; font-size: 14px; line-height: 1.7; margin-bottom: 18px; }
 .footer-contact small { display: flex; gap: 7px; align-items: center; color: rgba(255,255,255,.6); font-size: 12px; }
