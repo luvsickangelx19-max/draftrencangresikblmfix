@@ -15,24 +15,42 @@ const SLOGAN = 'Konco Apik Supoyo Papan Panggonan Dadi Resik';
 
 function useTypewriter(text: string, speed = 80, startDelay = 600) {
   const [displayed, setDisplayed] = useState('');
+  const [phase, setPhase] = useState<'typing' | 'pausing' | 'deleting' | 'waiting'>('typing');
+  const [i, setI] = useState(0);
+
   useEffect(() => {
-    let i = 0;
     let timeout: ReturnType<typeof setTimeout>;
-    const startTimer = setTimeout(() => {
-      const tick = () => {
-        if (i <= text.length) {
+
+    if (phase === 'typing') {
+      if (i <= text.length) {
+        timeout = setTimeout(() => {
           setDisplayed(text.slice(0, i));
-          i++;
-          timeout = setTimeout(tick, speed);
-        }
-      };
-      tick();
-    }, startDelay);
-    return () => {
-      clearTimeout(startTimer);
-      clearTimeout(timeout);
-    };
-  }, [text, speed, startDelay]);
+          setI(i + 1);
+        }, speed);
+      } else {
+        timeout = setTimeout(() => setPhase('pausing'), 1600);
+      }
+    } else if (phase === 'pausing') {
+      timeout = setTimeout(() => setPhase('deleting'), 400);
+    } else if (phase === 'deleting') {
+      if (i > 0) {
+        timeout = setTimeout(() => {
+          setDisplayed(text.slice(0, i - 1));
+          setI(i - 1);
+        }, 35);
+      } else {
+        timeout = setTimeout(() => setPhase('waiting'), 500);
+      }
+    } else {
+      timeout = setTimeout(() => {
+        setPhase('typing');
+        setI(0);
+      }, startDelay);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [text, speed, startDelay, phase, i]);
+
   return displayed;
 }
 
