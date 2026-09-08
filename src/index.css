@@ -192,8 +192,8 @@ h1, h2, h3, h4 { font-family: inherit; }
 @keyframes mascotFloat { 0% { transform: translateY(0); } 25% { transform: translateY(-16px); } 50% { transform: translateY(0); } 75% { transform: translateY(12px); } 100% { transform: translateY(0); } }
 
 /* FOOTER */
-footer { background: var(--deep); color: #fff; }
-.footer-contact { background: var(--primary); padding: 64px 8%; display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: center; }
+footer { background: #4295DD; color: #fff; }
+.footer-contact { background: #4295DD; padding: 64px 8%; display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: center; }
 .footer-contact .eyebrow { color: rgba(255,255,255,.7); }
 .footer-contact h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 14px; letter-spacing: -1px; color: #fff; line-height: 1.15; }
 .footer-contact p { color: rgba(255,255,255,.8); max-width: 480px; font-size: 14px; line-height: 1.7; margin-bottom: 18px; }
