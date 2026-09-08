@@ -36,7 +36,8 @@ h1, h2, h3, h4 { font-family: inherit; }
 /* HERO */
 .hero { min-height: auto; height: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 2px; padding: 8px 0px; background-image: linear-gradient(rgba(8, 53, 84, .34), rgba(8, 53, 84, .46)), url('/keratonicon.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #135284; color: #fff; position: relative; overflow: hidden; margin-top: 0 !important; margin-bottom: 0 !important; }
 .hero-mascot-wrap { display: flex; justify-content: center; align-items: center; position: relative; z-index: 2; width: 100%; }
-.hero-mascot-wrap img { width: 220px; height: 220px; object-fit: contain; display: block; }
+.hero-mascot-wrap img { width: 220px; height: 220px; object-fit: contain; display: block; animation: mascotFloat 3s ease-in-out infinite; }
+@keyframes mascotFloat { 0% { transform: translateY(0); } 25% { transform: translateY(-16px); } 50% { transform: translateY(0); } 75% { transform: translateY(12px); } 100% { transform: translateY(0); } }
 .hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 0.5px; width: 100%; max-width: 500px; align-items: center; text-align: center; }
 .hero .eyebrow { font-size: 12px; letter-spacing: 2.5px; }
 .eyebrow.dark { color: var(--cyan); }
