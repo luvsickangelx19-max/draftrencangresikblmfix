@@ -207,13 +207,13 @@ footer { background: #4295DD; color: #fff; }
 .footer-bottom { padding: 48px 8% 36px; display: grid; grid-template-columns: 2fr 1fr 1.3fr; gap: 56px; }
 .footer-brand { color: #fff; display: inline-block; }
 .footer-logo { height: 44px; width: auto; margin-bottom: 16px; }
-.footer-bottom p { color: #9eb9bd; font-size: 13px; margin: 16px 0 28px; line-height: 1.6; }
-.footer-bottom small { color: #76979c; font-size: 11px; }
+.footer-bottom p { color: #fff; font-size: 13px; margin: 16px 0 28px; line-height: 1.6; }
+.footer-bottom small { color: #fff; font-size: 11px; }
 .footer-bottom h4 { color: #fff; font-size: 13px; margin: 4px 0 18px; font-weight: 700; }
-.footer-bottom > div:not(:first-child) > a, .footer-bottom > div:not(:first-child) > span { display: flex; align-items: center; gap: 8px; color: #9eb9bd; font-size: 13px; margin-bottom: 14px; transition: color .2s; }
+.footer-bottom > div:not(:first-child) > a, .footer-bottom > div:not(:first-child) > span { display: flex; align-items: center; gap: 8px; color: #fff; font-size: 13px; margin-bottom: 14px; transition: color .2s; }
 .footer-bottom > div:not(:first-child) > a:hover { color: var(--cyan-light); }
-.footer-bottom > div:not(:first-child) svg { color: var(--primary); }
-.footer-wa { color: #54d5bd !important; }
+.footer-bottom > div:not(:first-child) svg { color: #fff; }
+.footer-wa { color: #fff !important; }
 
 @media (min-width: 768px) {
   .hero { flex-direction: column; text-align: center; justify-content: center; gap: 4px; padding: 10px 0px; min-height: auto; height: auto; }
