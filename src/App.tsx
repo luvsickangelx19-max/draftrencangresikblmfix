@@ -11,6 +11,8 @@ import {
   X,
 } from 'lucide-react';
 
+const SLOGAN = 'Konco Apik Supoyo Papan Panggonan Dadi Resik';
+
 
 const serviceCategories = [
   {
@@ -79,46 +81,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: '', phone: '', service: '', date: '', note: '' });
-  const [typed, setTyped] = useState('');
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [vh, setVh] = useState(0);
-  const fullText = 'Konco Apik Supoyo Papan Panggonan Dadi Resik';
 
-  useEffect(() => {
-    let raf = 0;
-    const handleScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const max = document.documentElement.scrollHeight - window.innerHeight;
-        setScrollProgress(max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0);
-      });
-    };
-    const handleResize = () => setVh(window.innerHeight);
-    handleScroll();
-    handleResize();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
-  useEffect(() => {
-    let i = 0;
-    let dir: 1 | -1 = 1;
-    let timer: ReturnType<typeof setTimeout>;
-    const tick = () => {
-      i += dir;
-      setTyped(fullText.slice(0, i));
-      if (i === fullText.length) { dir = -1; timer = setTimeout(tick, 2500); return; }
-      if (i === 0) { dir = 1; timer = setTimeout(tick, 400); return; }
-      timer = setTimeout(tick, dir === 1 ? 80 : 40);
-    };
-    timer = setTimeout(tick, 600);
-    return () => clearTimeout(timer);
-  }, []);
   const selectedDay = form.date ? new Intl.DateTimeFormat('id-ID', { weekday: 'long' }).format(new Date(`${form.date}T00:00:00`)) : '';
   const heroRef = useReveal<HTMLDivElement>();
   const servicesRef = useReveal<HTMLDivElement>();
@@ -147,10 +110,8 @@ function App() {
 
       <main>
         <section className="hero" id="beranda" ref={heroRef}>
-          <div className="hero-orb hero-orb-1" />
-          <div className="hero-orb hero-orb-2" />
-          <div className="hero-mascot-wrap animate-mascot-fly"><img src="/Maskot_rencang_resik.png" alt="Maskot Rencang Resik" /></div>
-          <div className="hero-copy"><p className="eyebrow">JASA KEBERSIHAN &amp; PERAWATAN</p><img className="hero-title-image" src="/polos_remove_bg.webp" alt="Rencang Resik" /><p className="hero-lead"><span className="lead-main">Jasa Cleaning &amp; Home Service</span><span className="lead-area">Area Solo Raya &amp; Yogyakarta</span></p><div className="hero-slogan"><p className="hero-text typing-text">{typed}<span className="typing-cursor">|</span></p></div><div className="hero-actions"><a className="button primary" href="#booking">Booking Sekarang <ArrowRight size={17} /></a><a className="button ghost" href="#layanan">Lihat Layanan</a></div><div className="hero-proof"><span><Check size={13} /> Aman &amp; Terpercaya</span><span><Check size={13} /> Tim Profesional</span><span><Check size={13} /> Harga Bersahabat</span></div></div>
+          <div className="hero-mascot-wrap"><img src="/Maskot_rencang_resik.png" alt="Maskot Rencang Resik" /></div>
+          <div className="hero-copy"><p className="eyebrow">JASA KEBERSIHAN &amp; PERAWATAN</p><img className="hero-title-image" src="/polos_remove_bg.webp" alt="Rencang Resik" /><p className="hero-lead"><span className="lead-main">Jasa Cleaning &amp; Home Service</span><span className="lead-area">Area Solo Raya &amp; Yogyakarta</span></p><div className="hero-slogan"><p className="hero-text">{SLOGAN}</p></div><div className="hero-actions"><a className="button primary" href="#booking">Booking Sekarang <ArrowRight size={17} /></a><a className="button ghost" href="#layanan">Lihat Layanan</a></div><div className="hero-proof"><span><Check size={13} /> Aman &amp; Terpercaya</span><span><Check size={13} /> Tim Profesional</span><span><Check size={13} /> Harga Bersahabat</span></div></div>
         </section>
 
         <section className="section services-section" id="layanan" ref={servicesRef} data-num="01"><div className="section-heading" data-reveal><p className="eyebrow dark">LAYANAN KAMI</p><h2>Layanan Terbaik dari Rencang Resik</h2><p>Rumah Bersih, Sehat, dan Nyaman Tanpa Ribet! Silakan pilih jenis layanan yang sesuai dengan kebutuhan hunian Anda saat ini. Tim profesional kami siap meluncur dengan peralatan lengkap.</p></div>{serviceCategories.map((cat) => <div className="service-category" key={cat.title} data-reveal><div className="category-header"><span className="category-icon"><img src={cat.img} alt={cat.title} /></span><h3>{cat.title}</h3></div><div className="service-grid">{cat.items.map((item) => <article className="service-card" key={item.title} data-reveal><div className="icon-box"><img src={item.img} alt={item.title} /></div><h4>{item.title}</h4><p>{item.text}</p><div className="card-bottom"><button onClick={() => updateForm('service', item.title)}>Pilih Layanan <ArrowRight size={13} /></button><a href="#booking">Detail <ArrowRight size={12} /></a></div></article>)}</div></div>)}</section>
@@ -165,16 +126,7 @@ function App() {
       </main>
 
       <footer id="kontak"><div className="footer-contact"><div><p className="eyebrow">HUBUNGI KAMI</p><h2>Hubungi Rencang Resik</h2><p>Punya pertanyaan seputar layanan kami? Jadwal, durasi, harga, dan konsultasi kebutuhan layanan khusus? Hubungi kami langsung melalui WhatsApp.</p></div><div className="whatsapp-card"><div className="wa-head"><img src="/pngwing.com_(5)_(1).png" alt="WhatsApp" /><span>CS Rencang Resik</span></div><strong>0822 4548 9977</strong><a href="https://wa.me/6282245489977">Chat WhatsApp Sekarang <ArrowRight size={13} /></a></div></div><div className="footer-bottom"><div><a className="footer-brand" href="#beranda"><img className="footer-logo" src="/Logo_.png" alt="Rencang Resik" /></a><p>Konco Apik Supoyo Papan Panggonan Dadi Resik</p><small>© 2026 Rencang Resik. All rights reserved.</small></div><div><h4>Tautan Cepat</h4><a href="#layanan">Layanan</a><a href="#tentang">Tentang Kami</a><a href="#area">Area Layanan</a><a href="#booking">Booking</a></div><div><h4>Kontak &amp; Layanan</h4><span><MapPin size={13} /> Solo Raya &amp; Yogyakarta</span><span><Mail size={13} /> halo@rencangresik.com</span><a className="footer-wa" href="https://wa.me/6282245489977"><Phone size={13} /> Chat WhatsApp</a></div></div></footer>
-      <div className="scroll-mascot" aria-hidden="true">
-        <div
-          className="scroll-mascot-inner"
-          style={{
-            transform: `translate3d(${Math.sin(scrollProgress * Math.PI * 3) * 15}px, ${80 + scrollProgress * Math.max(200, vh - 240)}px, 0) rotate(${Math.sin(scrollProgress * Math.PI * 3) * 4}deg)`,
-          }}
-        >
-          <img src="/Maskot_rencang_resik.png" alt="" />
-        </div>
-      </div>
+
     </div>
   );
 }
