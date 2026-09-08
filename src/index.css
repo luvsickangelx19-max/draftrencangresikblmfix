@@ -49,7 +49,7 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
 .eyebrow.dark { color: var(--cyan); }
 .hero h1 { font-size: clamp(39px, 5.25vw, 63px); letter-spacing: -1.5px; line-height: 1.1; margin: 0; font-weight: 900; color: #fff; text-transform: uppercase; text-shadow: 0 0 20px rgba(255,255,255,.5), 0 0 40px rgba(0,173,239,.4), 0 0 60px rgba(0,173,239,.3); white-space: nowrap; }
 .hero-title { text-align: center; }
-.hero-title-image { width: min(88%, 480px); height: 180px; object-fit: contain; display: block; }
+.hero-title-image { width: min(95%, 1440px); height: 540px; object-fit: contain; display: block; }
 .hero-lead { font-size: clamp(14px, 1.8vw, 18px); font-weight: 700; max-width: 460px; margin: 0; line-height: 1.25; color: rgba(255,255,255,.95); }
 .hero-lead .lead-main { display: block; }
 .hero-lead .lead-area { display: block; }
