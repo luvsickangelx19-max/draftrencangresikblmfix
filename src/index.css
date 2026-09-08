@@ -48,6 +48,8 @@ h1, h2, h3, h4 { font-family: inherit; }
 .hero-slogan { width: 100%; max-width: 480px; padding: 6px 24px; background: rgba(19,82,132,.5); border: 1px solid rgba(233,137,37,.3); border-radius: 16px; backdrop-filter: blur(4px); transition: transform .3s; text-align: center; }
 .hero-slogan:hover { transform: scale(1.05); }
 .hero-slogan .hero-text { color: var(--amber); font-weight: 700; }
+.type-cursor { display: inline-block; width: 2px; height: 1em; background: var(--amber); margin-left: 2px; vertical-align: text-bottom; animation: blink 0.7s step-end infinite; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 .hero-actions { display: flex; flex-direction: column; gap: 8px; margin: 8px 0 4px; flex-wrap: wrap; width: 100%; align-items: center; }
 .button { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 6px; font-size: 13px; font-weight: 700; transition: all .3s cubic-bezier(.22,1,.36,1); }
 .button.primary { background: var(--amber); color: #fff; }

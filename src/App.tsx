@@ -13,6 +13,29 @@ import {
 
 const SLOGAN = 'Konco Apik Supoyo Papan Panggonan Dadi Resik';
 
+function useTypewriter(text: string, speed = 80, startDelay = 600) {
+  const [displayed, setDisplayed] = useState('');
+  useEffect(() => {
+    let i = 0;
+    let timeout: ReturnType<typeof setTimeout>;
+    const startTimer = setTimeout(() => {
+      const tick = () => {
+        if (i <= text.length) {
+          setDisplayed(text.slice(0, i));
+          i++;
+          timeout = setTimeout(tick, speed);
+        }
+      };
+      tick();
+    }, startDelay);
+    return () => {
+      clearTimeout(startTimer);
+      clearTimeout(timeout);
+    };
+  }, [text, speed, startDelay]);
+  return displayed;
+}
+
 
 const serviceCategories = [
   {
@@ -101,6 +124,8 @@ function App() {
 
   const mascotTop = 80 + scrollProgress * (winHeight - 180);
 
+  const sloganText = useTypewriter(SLOGAN);
+
   const selectedDay = form.date ? new Intl.DateTimeFormat('id-ID', { weekday: 'long' }).format(new Date(`${form.date}T00:00:00`)) : '';
   const heroRef = useReveal<HTMLDivElement>();
   const servicesRef = useReveal<HTMLDivElement>();
@@ -138,7 +163,7 @@ Terima kasih.`;
 
       <main>
         <section className="hero" id="beranda" ref={heroRef}>
-          <div className="hero-copy"><p className="eyebrow">JASA KEBERSIHAN &amp; PERAWATAN</p><img className="hero-title-image" src="/polos_remove_bg.webp" alt="Rencang Resik" /><p className="hero-lead"><span className="lead-main">Jasa Cleaning &amp; Home Service</span><span className="lead-area">Area Solo Raya &amp; Yogyakarta</span></p><div className="hero-slogan"><p className="hero-text">{SLOGAN}</p></div><div className="hero-actions"><a className="button primary" href="#booking">Booking Sekarang <ArrowRight size={17} /></a><a className="button ghost" href="#layanan">Lihat Layanan</a></div><div className="hero-proof"><span><Check size={13} /> Aman &amp; Terpercaya</span><span><Check size={13} /> Tim Profesional</span><span><Check size={13} /> Harga Bersahabat</span></div></div>
+          <div className="hero-copy"><p className="eyebrow">JASA KEBERSIHAN &amp; PERAWATAN</p><img className="hero-title-image" src="/polos_remove_bg.webp" alt="Rencang Resik" /><p className="hero-lead"><span className="lead-main">Jasa Cleaning &amp; Home Service</span><span className="lead-area">Area Solo Raya &amp; Yogyakarta</span></p><div className="hero-slogan"><p className="hero-text">{sloganText}<span className="type-cursor" /></p></div><div className="hero-actions"><a className="button primary" href="#booking">Booking Sekarang <ArrowRight size={17} /></a><a className="button ghost" href="#layanan">Lihat Layanan</a></div><div className="hero-proof"><span><Check size={13} /> Aman &amp; Terpercaya</span><span><Check size={13} /> Tim Profesional</span><span><Check size={13} /> Harga Bersahabat</span></div></div>
         </section>
 
         <section className="section services-section" id="layanan" ref={servicesRef} data-num="01"><div className="section-heading" data-reveal><p className="eyebrow dark">LAYANAN KAMI</p><h2>Layanan Terbaik dari Rencang Resik</h2><p>Rumah Bersih, Sehat, dan Nyaman Tanpa Ribet! Silakan pilih jenis layanan yang sesuai dengan kebutuhan hunian Anda saat ini. Tim profesional kami siap meluncur dengan peralatan lengkap.</p></div>{serviceCategories.map((cat) => <div className="service-category" key={cat.title} data-reveal><div className="category-header"><span className="category-icon"><img src={cat.img} alt={cat.title} /></span><h3>{cat.title}</h3></div><div className="service-grid">{cat.items.map((item) => <article className="service-card" key={item.title} data-reveal><div className="icon-box"><img src={item.img} alt={item.title} /></div><h4>{item.title}</h4><p>{item.text}</p></article>)}</div></div>)}</section>
