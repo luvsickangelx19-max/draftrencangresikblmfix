@@ -214,7 +214,7 @@ footer { background: var(--deep); color: #fff; }
 
 @media (min-width: 768px) {
   .scroll-mascot .scroll-mascot-inner { width: 150px; right: 24px; }
-  .hero { flex-direction: column; text-align: center; justify-content: center; gap: 8px; padding: 15px 0px; min-height: 100vh; height: 100vh; }
+  .hero { flex-direction: column; text-align: center; justify-content: center; gap: 8px; padding: 15px 0px; min-height: auto; height: auto; }
   .hero-copy { align-items: center; max-width: 600px; text-align: center; }
   .hero-mascot-wrap { width: 100%; }
   .hero-mascot-wrap img { width: 360px; height: 360px; }
