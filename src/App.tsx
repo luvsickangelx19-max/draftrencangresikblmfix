@@ -81,6 +81,25 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: '', phone: '', service: '', date: '', note: '' });
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [winHeight, setWinHeight] = useState(typeof window !== 'undefined' ? window.innerHeight : 800);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? Math.min(window.scrollY / docHeight, 1) : 0);
+    };
+    const onResize = () => setWinHeight(window.innerHeight);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+    onScroll();
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
+
+  const mascotTop = 80 + scrollProgress * (winHeight - 180);
 
   const selectedDay = form.date ? new Intl.DateTimeFormat('id-ID', { weekday: 'long' }).format(new Date(`${form.date}T00:00:00`)) : '';
   const heroRef = useReveal<HTMLDivElement>();
@@ -107,6 +126,7 @@ Terima kasih.`;
 
   return (
     <div className="site-shell">
+      <div className="floating-mascot" style={{ top: `${mascotTop}px` }} aria-hidden="true"><img src="/Maskot_rencang_resik.png" alt="Maskot Rencang Resik" /></div>
       <header className="navbar">
         <a href="#beranda"><img className="navbar-logo" src="/Logo_.png" alt="Rencang Resik" /></a>
         <button className="mobile-menu" aria-label="Buka menu" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button>
@@ -118,7 +138,6 @@ Terima kasih.`;
 
       <main>
         <section className="hero" id="beranda" ref={heroRef}>
-          <div className="hero-mascot-wrap"><img src="/Maskot_rencang_resik.png" alt="Maskot Rencang Resik" /></div>
           <div className="hero-copy"><p className="eyebrow">JASA KEBERSIHAN &amp; PERAWATAN</p><img className="hero-title-image" src="/polos_remove_bg.webp" alt="Rencang Resik" /><p className="hero-lead"><span className="lead-main">Jasa Cleaning &amp; Home Service</span><span className="lead-area">Area Solo Raya &amp; Yogyakarta</span></p><div className="hero-slogan"><p className="hero-text">{SLOGAN}</p></div><div className="hero-actions"><a className="button primary" href="#booking">Booking Sekarang <ArrowRight size={17} /></a><a className="button ghost" href="#layanan">Lihat Layanan</a></div><div className="hero-proof"><span><Check size={13} /> Aman &amp; Terpercaya</span><span><Check size={13} /> Tim Profesional</span><span><Check size={13} /> Harga Bersahabat</span></div></div>
         </section>
 
