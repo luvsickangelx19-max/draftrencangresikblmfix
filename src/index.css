@@ -177,6 +177,7 @@ h1, h2, h3, h4 { font-family: inherit; }
 .social-card:nth-child(1) { background: var(--pale); border-color: #d0e8ed; }
 .social-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(13,74,90,.06); }
 .social-heading-orange { color: var(--amber); font-weight: 800; }
+.social-eyebrow-orange { color: var(--amber) !important; }
 .social-icon { width: 64px; height: 64px; display: grid; place-items: center; margin: 0 auto 18px; color: var(--deep); }
 .social-icon svg, .social-icon img { width: 56px; height: 56px; display: block; object-fit: contain; }
 .social-icon.instagram { color: #d62976; }
