@@ -47,7 +47,6 @@ h1, h2, h3, h4 { font-family: inherit; }
 .hero-lead .lead-main { display: block; }
 .hero-lead .lead-area { display: block; }
 .hero-text { color: rgba(255,255,255,.9); line-height: 1.6; font-size: 15px; max-width: 100%; margin: 0; font-style: italic; text-align: center; }
-.hero-divider { width: 100%; max-width: 480px; height: 4px; background: var(--cyan); border-radius: 999px; opacity: .8; margin: 4px 0; }
 .hero-slogan { width: 100%; max-width: 480px; padding: 6px 24px; background: rgba(19,82,132,.5); border: 1px solid rgba(233,137,37,.3); border-radius: 16px; backdrop-filter: blur(4px); transition: transform .3s; text-align: center; }
 .hero-slogan:hover { transform: scale(1.05); }
 .hero-slogan .hero-text { color: var(--amber); font-weight: 700; }
@@ -59,8 +58,6 @@ h1, h2, h3, h4 { font-family: inherit; }
 .button.ghost:hover { border-color: rgba(255,255,255,.6); background: rgba(255,255,255,.12); }
 .hero-proof { display: flex; flex-direction: column; gap: 4px; color: rgba(255,255,255,.9); font-size: 12px; }
 .hero-proof span { display: flex; align-items: center; gap: 6px; }
-
-.animate-mascot-fly { position: relative; z-index: 1; }
 
 /* SECTIONS */
 .section { padding: 96px 8%; position: relative; }

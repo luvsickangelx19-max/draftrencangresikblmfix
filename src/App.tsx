@@ -19,20 +19,19 @@ const serviceCategories = [
     img: '/kebersihanicon.png',
     title: 'Kebersihan Rumah & Hunian',
     items: [
-      { img: '/dailyicon.png', title: 'Daily Cleaning (Sekali Datang)', text: <strong>Solusi praktis kebersihan harian tanpa terikat kontrak.</strong>
- Layanan bersih-bersih standar yang cepat dan efisien (menyapu, mengepel, lap debu, merapikan kasur, dan sikat kamar mandi). Cocok untuk Anda yang sibuk dan ingin rumah atau apartemen langsung rapi dalam sekejap.' },
-      { img: '/deepcleaningicon.png', title: 'Deep Cleaning / Borongan', text: <strong> Pembersihan menyeluruh skala besar untuk hasil higienis maksimal.<strong> Layanan pembersihan total secara mendetail ke sudut yang jarang tersentuh. Sangat ideal untuk kerak kamar mandi menahun, pembersihan pasca-renovasi/konstruksi, pindahan rumah, hingga persiapan acara besar.' },
-      { img: '/cleaninglanggananicon.png', title: 'Cleaning Langganan (Subscription)', text: <strong> Rumah selalu bersih konsisten dengan harga jauh lebih hemat!<strong> Solusi terbaik untuk Anda yang butuh jasa pembersihan rutin secara berkala (misal: seminggu 2x atau sebulan 4x). Nikmati keuntungan jadwal prioritas, tim tetap yang tepercaya, dan paket harga yang lebih terjangkau.' },
-      { img: '/kosicon.png', title: 'Paket Kos', text: <strong> Solusi praktis dan hemat khusus anak kos dan pemilik persewaan.<strong> Layanan kilat untuk membersihkan kamar kos secara total. Sangat cocok bagi penghuni baru yang ingin kamarnya steril, maupun penghuni lama yang akan pindah (checkout) agar serah terima kunci berjalan lancar.' },
+      { img: '/dailyicon.png', title: 'Daily Cleaning (Sekali Datang)', text: 'Solusi praktis kebersihan harian tanpa terikat kontrak. Layanan bersih-bersih standar yang cepat dan efisien (menyapu, mengepel, lap debu, merapikan kasur, dan sikat kamar mandi). Cocok untuk Anda yang sibuk dan ingin rumah atau apartemen langsung rapi dalam sekejap.' },
+      { img: '/deepcleaningicon.png', title: 'Deep Cleaning / Borongan', text: 'Pembersihan menyeluruh skala besar untuk hasil higienis maksimal. Layanan pembersihan total secara mendetail ke sudut yang jarang tersentuh. Ideal untuk kerak kamar mandi menahun, pasca-renovasi, pindahan rumah, hingga persiapan acara besar.' },
+      { img: '/cleaninglanggananicon.png', title: 'Cleaning Langganan (Subscription)', text: 'Rumah selalu bersih konsisten dengan harga jauh lebih hemat! Solusi untuk Anda yang butuh jasa pembersihan rutin berkala (misal: seminggu 2x atau sebulan 4x). Nikmati jadwal prioritas, tim tetap yang tepercaya, dan paket harga lebih terjangkau.' },
+      { img: '/kosicon.png', title: 'Paket Kos (Pindahan / Serah Terima)', text: 'Solusi praktis dan hemat khusus anak kos dan pemilik persewaan. Layanan kilat untuk membersihkan kamar kos secara total. Cocok bagi penghuni baru yang ingin kamarnya steril, maupun penghuni lama yang akan pindah (checkout) agar serah terima kunci berjalan lancar.' },
     ],
   },
   {
     img: '/perawatanfurnituricon.png',
     title: 'Perawatan Furnitur & Estetik',
     items: [
-      { img: '/laundrysofaicon.png', title: 'Laundry Sofa & Bed', text: <strong> Usir tungau, debu, dan noda membandel dari tempat tidur & sofa favorit.<strong> Kami membersihkan sofa, kasur, bantal, hingga karpet menggunakan teknik cuci-sikat-vakum-pengeringan dengan cairan pembersih aman. Efektif membunuh bakteri dan tungau penyebab gatal atau alergi.' },
-      { img: '/poleslantaiicon.png', title: 'Poles Lantai', text: <strong> Kembalikan kilau mewah dan keindahan lantai hunian Anda.<strong> Layanan restorasi dan perawatan khusus untuk berbagai jenis lantai (marmer, granit, teraso, hingga keramik). Kami mengangkat kusam, menyamarkan goresan halus, dan memberikan proteksi agar lantai kembali berkilau alami.' },
-      { img: '/repainticon.png', title: 'Repaint (Pengecatan Ulang)', text: <strong> Segarkan kembali estetika dinding rumah dengan warna baru.<strong> Layanan pengecatan ulang untuk dinding interior maupun eksterior yang kusam, mengelupas, atau berjamur. Tim kami bekerja dengan rapi, melindungi furnitur Anda dari cipratan, dan memberikan hasil akhir yang halus serta tahan lama.' },
+      { img: '/laundrysofaicon.png', title: 'Laundry Sofa & Bed', text: 'Usir tungau, debu, dan noda membandel dari tempat tidur & sofa favorit. Kami membersihkan sofa, kasur, bantal, hingga karpet dengan teknik cuci-sikat-vakum-pengeringan menggunakan cairan pembersih aman. Efektif membunuh bakteri dan tungau penyebab gatal atau alergi.' },
+      { img: '/poleslantaiicon.png', title: 'Poles Lantai', text: 'Kembalikan kilau mewah dan keindahan lantai hunian Anda. Layanan restorasi dan perawatan untuk berbagai jenis lantai — marmer, granit, teraso, hingga keramik. Kami mengangkat kusam, menyamarkan goresan halus, dan memberikan proteksi agar lantai kembali berkilau alami.' },
+      { img: '/repainticon.png', title: 'Repaint (Pengecatan Ulang)', text: 'Segarkan kembali estetika dinding rumah dengan warna baru. Layanan pengecatan ulang untuk dinding interior maupun eksterior yang kusam, mengelupas, atau berjamur. Tim kami bekerja rapi, melindungi furnitur dari cipratan, dan memberikan hasil akhir halus serta tahan lama.' },
     ],
   },
   {
@@ -95,6 +94,14 @@ function App() {
 
   const submitBooking = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const message = `Halo Rencang Resik,
+Saya ingin memesan layanan ${form.service || 'Cleaning Service'}.
+Nama: ${form.name || 'Nama Anda'}
+No. WhatsApp: ${form.phone || '-'}
+Tanggal: ${form.date || '-'}
+Catatan: ${form.note || '-'}
+Terima kasih.`;
+    window.open(`https://wa.me/6282245489977?text=${encodeURIComponent(message)}`, '_blank');
     setSent(true);
   };
 
@@ -115,7 +122,7 @@ function App() {
           <div className="hero-copy"><p className="eyebrow">JASA KEBERSIHAN &amp; PERAWATAN</p><img className="hero-title-image" src="/polos_remove_bg.webp" alt="Rencang Resik" /><p className="hero-lead"><span className="lead-main">Jasa Cleaning &amp; Home Service</span><span className="lead-area">Area Solo Raya &amp; Yogyakarta</span></p><div className="hero-slogan"><p className="hero-text">{SLOGAN}</p></div><div className="hero-actions"><a className="button primary" href="#booking">Booking Sekarang <ArrowRight size={17} /></a><a className="button ghost" href="#layanan">Lihat Layanan</a></div><div className="hero-proof"><span><Check size={13} /> Aman &amp; Terpercaya</span><span><Check size={13} /> Tim Profesional</span><span><Check size={13} /> Harga Bersahabat</span></div></div>
         </section>
 
-        <section className="section services-section" id="layanan" ref={servicesRef} data-num="01"><div className="section-heading" data-reveal><p className="eyebrow dark">LAYANAN KAMI</p><h2>Layanan Terbaik dari Rencang Resik</h2><p><strong>Rumah Bersih, Sehat, dan Nyaman Tanpa Ribet!</strong> Silakan pilih jenis layanan yang sesuai dengan kebutuhan hunian Anda saat ini. Tim profesional kami siap meluncur dengan peralatan lengkap.</p></div>{serviceCategories.map((cat) => <div className="service-category" key={cat.title} data-reveal><div className="category-header"><span className="category-icon"><img src={cat.img} alt={cat.title} /></span><h3>{cat.title}</h3></div><div className="service-grid">{cat.items.map((item) => <article className="service-card" key={item.title} data-reveal><div className="icon-box"><img src={item.img} alt={item.title} /></div><h4>{item.title}</h4><p>{item.text}</p><div className="card-bottom"><button onClick={() => updateForm('service', item.title)}>Pilih Layanan <ArrowRight size={13} /></button><a href="#booking">Detail <ArrowRight size={12} /></a></div></article>)}</div></div>)}</section>
+        <section className="section services-section" id="layanan" ref={servicesRef} data-num="01"><div className="section-heading" data-reveal><p className="eyebrow dark">LAYANAN KAMI</p><h2>Layanan Terbaik dari Rencang Resik</h2><p>Rumah Bersih, Sehat, dan Nyaman Tanpa Ribet! Silakan pilih jenis layanan yang sesuai dengan kebutuhan hunian Anda saat ini. Tim profesional kami siap meluncur dengan peralatan lengkap.</p></div>{serviceCategories.map((cat) => <div className="service-category" key={cat.title} data-reveal><div className="category-header"><span className="category-icon"><img src={cat.img} alt={cat.title} /></span><h3>{cat.title}</h3></div><div className="service-grid">{cat.items.map((item) => <article className="service-card" key={item.title} data-reveal><div className="icon-box"><img src={item.img} alt={item.title} /></div><h4>{item.title}</h4><p>{item.text}</p><div className="card-bottom"><button onClick={() => updateForm('service', item.title)}>Pilih Layanan <ArrowRight size={13} /></button><a href="#booking">Detail <ArrowRight size={12} /></a></div></article>)}</div></div>)}</section>
 
         <section className="section about-section" id="tentang" ref={aboutRef}><div className="about-copy" data-reveal><p className="eyebrow dark">MENGAPA KAMI</p><h2>Tentang Rencang Resik</h2><p>Rencang Resik hadir sebagai teman yang membantu menjaga kebersihan dan kenyamanan rumah, kantor, kost, serta ruang usaha Anda.</p><p>Kami percaya lingkungan yang bersih memberikan energi positif dan kualitas hidup yang lebih baik. Dengan tim berpengalaman dan proses kerja yang rapi, kami siap menjadi rencang andalan Anda.</p></div><div className="values">{[<Value key="v1" icon={Check} title="Praktis &amp; Anti Ribet" text="Pesan mudah, jadwal fleksibel, dan layanan langsung ke lokasi Anda." />, <Value key="v2" icon={Star} title="Terpercaya &amp; Profesional" text="Tim terlatih dengan standar kerja yang konsisten dan hasil maksimal." />, <Value key="v3" icon={MapPin} title="Area Layanan Luas" text="Hadir di Solo Raya dan Daerah Istimewa Yogyakarta." />].map((el, i) => <div key={i} data-reveal>{el}</div>)}</div></section>
 
@@ -132,7 +139,7 @@ function App() {
   );
 }
 
-function SocialLogo({ type }: { type: 'instagram' | 'threads' | 'tiktok' | 'whatsapp' }) {
+function SocialLogo({ type }: { type: 'instagram' | 'threads' | 'tiktok' }) {
   if (type === 'instagram') return <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="2" /><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg>;
   if (type === 'threads') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 11.1c-.2-3.8-2.4-6-5.9-6-3.4 0-5.8 2.1-5.8 5.3 0 3.5 2.7 5.7 6.2 5.7 2.8 0 4.8-1.4 5.5-3.7-1.1-1.1-2.6-1.6-4.4-1.6-1.8 0-2.9.7-2.9 1.8 0 .8.7 1.3 1.7 1.3 1.5 0 2.5-.9 2.5-2.5 0-3-1.6-4.7-4.1-4.7-2 0-3.4 1.3-3.4 3.2 0 2.1 1.6 3.5 4 3.5 3.4 0 5.8 2.1 5.8 4.8 0 2.7-2.2 4.3-5.4 4.3-4.4 0-7.4-2.8-7.4-7.1" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>;
   if (type === 'tiktok') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v10.2a3.6 3.6 0 1 1-3-3.5M14 4c.5 2.6 2.1 4.2 4.5 4.7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>;
