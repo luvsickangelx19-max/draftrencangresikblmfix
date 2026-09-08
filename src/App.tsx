@@ -19,19 +19,20 @@ const serviceCategories = [
     img: '/kebersihanicon.png',
     title: 'Kebersihan Rumah & Hunian',
     items: [
-      { img: '/dailyicon.png', title: 'Daily Cleaning (Sekali Datang)', text: 'Solusi praktis kebersihan harian tanpa terikat kontrak. Layanan bersih-bersih standar yang cepat dan efisien (menyapu, mengepel, lap debu, merapikan kasur, dan sikat kamar mandi). Cocok untuk Anda yang sibuk dan ingin rumah atau apartemen langsung rapi dalam sekejap.' },
-      { img: '/deepcleaningicon.png', title: 'Deep Cleaning / Borongan', text: 'Pembersihan menyeluruh skala besar untuk hasil higienis maksimal. Layanan pembersihan total secara mendetail ke sudut yang jarang tersentuh. Ideal untuk kerak kamar mandi menahun, pasca-renovasi, pindahan rumah, hingga persiapan acara besar.' },
-      { img: '/cleaninglanggananicon.png', title: 'Cleaning Langganan (Subscription)', text: 'Rumah selalu bersih konsisten dengan harga jauh lebih hemat! Solusi untuk Anda yang butuh jasa pembersihan rutin berkala (misal: seminggu 2x atau sebulan 4x). Nikmati jadwal prioritas, tim tetap yang tepercaya, dan paket harga lebih terjangkau.' },
-      { img: '/kosicon.png', title: 'Paket Kos (Pindahan / Serah Terima)', text: 'Solusi praktis dan hemat khusus anak kos dan pemilik persewaan. Layanan kilat untuk membersihkan kamar kos secara total. Cocok bagi penghuni baru yang ingin kamarnya steril, maupun penghuni lama yang akan pindah (checkout) agar serah terima kunci berjalan lancar.' },
+      { img: '/dailyicon.png', title: 'Daily Cleaning (Sekali Datang)', text: <strong>Solusi praktis kebersihan harian tanpa terikat kontrak.</strong>
+ Layanan bersih-bersih standar yang cepat dan efisien (menyapu, mengepel, lap debu, merapikan kasur, dan sikat kamar mandi). Cocok untuk Anda yang sibuk dan ingin rumah atau apartemen langsung rapi dalam sekejap.' },
+      { img: '/deepcleaningicon.png', title: 'Deep Cleaning / Borongan', text: <strong> Pembersihan menyeluruh skala besar untuk hasil higienis maksimal.<strong> Layanan pembersihan total secara mendetail ke sudut yang jarang tersentuh. Sangat ideal untuk kerak kamar mandi menahun, pembersihan pasca-renovasi/konstruksi, pindahan rumah, hingga persiapan acara besar.' },
+      { img: '/cleaninglanggananicon.png', title: 'Cleaning Langganan (Subscription)', text: <strong> Rumah selalu bersih konsisten dengan harga jauh lebih hemat!<strong> Solusi terbaik untuk Anda yang butuh jasa pembersihan rutin secara berkala (misal: seminggu 2x atau sebulan 4x). Nikmati keuntungan jadwal prioritas, tim tetap yang tepercaya, dan paket harga yang lebih terjangkau.' },
+      { img: '/kosicon.png', title: 'Paket Kos', text: <strong> Solusi praktis dan hemat khusus anak kos dan pemilik persewaan.<strong> Layanan kilat untuk membersihkan kamar kos secara total. Sangat cocok bagi penghuni baru yang ingin kamarnya steril, maupun penghuni lama yang akan pindah (checkout) agar serah terima kunci berjalan lancar.' },
     ],
   },
   {
     img: '/perawatanfurnituricon.png',
     title: 'Perawatan Furnitur & Estetik',
     items: [
-      { img: '/laundrysofaicon.png', title: 'Laundry Sofa & Bed', text: 'Usir tungau, debu, dan noda membandel dari tempat tidur & sofa favorit. Kami membersihkan sofa, kasur, bantal, hingga karpet dengan teknik cuci-sikat-vakum-pengeringan menggunakan cairan pembersih aman. Efektif membunuh bakteri dan tungau penyebab gatal atau alergi.' },
-      { img: '/poleslantaiicon.png', title: 'Poles Lantai', text: 'Kembalikan kilau mewah dan keindahan lantai hunian Anda. Layanan restorasi dan perawatan untuk berbagai jenis lantai — marmer, granit, teraso, hingga keramik. Kami mengangkat kusam, menyamarkan goresan halus, dan memberikan proteksi agar lantai kembali berkilau alami.' },
-      { img: '/repainticon.png', title: 'Repaint (Pengecatan Ulang)', text: 'Segarkan kembali estetika dinding rumah dengan warna baru. Layanan pengecatan ulang untuk dinding interior maupun eksterior yang kusam, mengelupas, atau berjamur. Tim kami bekerja rapi, melindungi furnitur dari cipratan, dan memberikan hasil akhir halus serta tahan lama.' },
+      { img: '/laundrysofaicon.png', title: 'Laundry Sofa & Bed', text: <strong> Usir tungau, debu, dan noda membandel dari tempat tidur & sofa favorit.<strong> Kami membersihkan sofa, kasur, bantal, hingga karpet menggunakan teknik cuci-sikat-vakum-pengeringan dengan cairan pembersih aman. Efektif membunuh bakteri dan tungau penyebab gatal atau alergi.' },
+      { img: '/poleslantaiicon.png', title: 'Poles Lantai', text: <strong> Kembalikan kilau mewah dan keindahan lantai hunian Anda.<strong> Layanan restorasi dan perawatan khusus untuk berbagai jenis lantai (marmer, granit, teraso, hingga keramik). Kami mengangkat kusam, menyamarkan goresan halus, dan memberikan proteksi agar lantai kembali berkilau alami.' },
+      { img: '/repainticon.png', title: 'Repaint (Pengecatan Ulang)', text: <strong> Segarkan kembali estetika dinding rumah dengan warna baru.<strong> Layanan pengecatan ulang untuk dinding interior maupun eksterior yang kusam, mengelupas, atau berjamur. Tim kami bekerja dengan rapi, melindungi furnitur Anda dari cipratan, dan memberikan hasil akhir yang halus serta tahan lama.' },
     ],
   },
   {
