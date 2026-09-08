@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import {
   ArrowRight,
+  ChevronDown,
   Check,
   Mail,
   MapPin,
@@ -76,6 +78,13 @@ const serviceCategories = [
     ],
   },
   {
+    img: '/assets/icons/Layanan_Web_Icons_(1).png',
+    title: 'Packing Pindahan & Jasa Angkut',
+    items: [
+      { img: '/assets/icons/Layanan_Web_Icons_(1).png', title: 'Layanan Packing Pindahan dan Jasa Angkut', text: '*Layanan packing barang yang rapi, aman, dan sistematis.* Kami paham bahwa setiap barang Anda berharga. Oleh karena itu, tim profesional kami akan memastikan seluruh proses pengepakan dilakukan dengan standar terbaik agar barang Anda sampai di lokasi baru tanpa lecet, pecah, atau rusak. Jasa pindahan dengan armada Pickup atau bisa disesuaikan dengan kebutuhan, fleksibel. Pelanggan bisa meminta disediakan kardus/bubble wrap dari kami jika dibutuhkan.' },
+    ],
+  },
+  {
     img: '/sanitasiicon.png',
     title: 'Sanitasi & Perawatan Fasilitas',
     items: [
@@ -136,6 +145,8 @@ function useReveal<T extends HTMLElement>() {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [sent, setSent] = useState(false);
+  const [servicesVisible, setServicesVisible] = useState(false);
+  const servicesInnerRef = useRef<HTMLDivElement>(null);
   const [form, setForm] = useState({ name: '', phone: '', service: '', date: '', note: '' });
   const [scrollProgress, setScrollProgress] = useState(0);
   const [winHeight, setWinHeight] = useState(typeof window !== 'undefined' ? window.innerHeight : 800);
@@ -199,7 +210,7 @@ Terima kasih.`;
           <div className="hero-copy"><p className="eyebrow">JASA KEBERSIHAN &amp; PERAWATAN</p><img className="hero-title-image" src="/polos_remove_bg.webp" alt="Rencang Resik" /><p className="hero-lead"><span className="lead-main">Jasa Cleaning &amp; Home Service</span><span className="lead-area">Area Solo Raya &amp; Yogyakarta</span></p><div className="hero-slogan"><p className="hero-text">{sloganText}<span className="type-cursor" /></p></div><div className="hero-actions"><a className="button primary" href="#booking">Booking Sekarang <ArrowRight size={17} /></a><a className="button ghost" href="#layanan">Lihat Layanan</a></div><div className="hero-proof"><span><Check size={13} /> Aman &amp; Terpercaya</span><span><Check size={13} /> Tim Profesional</span><span><Check size={13} /> Harga Bersahabat</span></div></div>
         </section>
 
-        <section className="section services-section" id="layanan" ref={servicesRef} ><div className="services-heading-wrap" data-reveal><p className="eyebrow dark">LAYANAN KAMI</p><h2 className="services-title">Layanan Terbaik dari Rencang Resik</h2><p className="services-desc"><BoldText text="*Rumah Bersih, Sehat, dan Nyaman Tanpa Ribet!* Silakan pilih jenis layanan yang sesuai dengan kebutuhan hunian Anda saat ini. Tim profesional kami siap meluncur dengan peralatan lengkap." /></p></div>{serviceCategories.map((cat) => <div className="service-category" key={cat.title} data-reveal><div className="category-header"><span className="category-icon"><img src={cat.img} alt={cat.title} /></span><h3>{cat.title}</h3></div><div className="service-grid">{cat.items.map((item) => <article className="service-card" key={item.title} data-reveal><div className="icon-box"><img src={item.img} alt={item.title} /></div><h4>{item.title}</h4><p><BoldText text={item.text} /></p></article>)}</div></div>)}</section>
+        <section className="section services-section" id="layanan" ref={servicesRef} ><div className="services-heading-wrap" data-reveal><p className="eyebrow dark">LAYANAN KAMI</p><h2 className="services-title">Layanan Terbaik dari Rencang Resik</h2><p className="services-desc"><BoldText text="*Rumah Bersih, Sehat, dan Nyaman Tanpa Ribet!* Silakan pilih jenis layanan yang sesuai dengan kebutuhan hunian Anda saat ini. Tim profesional kami siap meluncur dengan peralatan lengkap." /></p></div><div className="services-reveal-btn-wrap" data-reveal><button className={`services-reveal-btn${servicesVisible ? ' active' : ''}`} onClick={() => { setServicesVisible(true); setTimeout(() => servicesInnerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80); }} aria-expanded={servicesVisible} aria-controls="services-list"><span className="services-reveal-btn-text">{servicesVisible ? 'Layanan Tampil' : 'Yuk Lihat Layanan Kami'}</span><ChevronDown size={20} className="services-reveal-btn-icon" /></button></div><div id="services-list" ref={servicesInnerRef} className="services-list-wrapper"><AnimatePresence initial={false}>{servicesVisible && <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="services-list-inner">{serviceCategories.map((cat, catIdx) => <motion.div className="service-category" key={cat.title} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: catIdx * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}><div className="category-header"><span className="category-icon"><img src={cat.img} alt={cat.title} /></span><h3>{cat.title}</h3></div><div className="service-grid">{cat.items.map((item, itemIdx) => <motion.article className="service-card" key={item.title} initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.45, delay: catIdx * 0.15 + itemIdx * 0.12 + 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}><div className="icon-box"><img src={item.img} alt={item.title} /></div><h4>{item.title}</h4><p><BoldText text={item.text} /></p></motion.article>)}</div></motion.div>)}</motion.div>}</AnimatePresence></div></section>
 
         <section className="section about-section" id="tentang" ref={aboutRef}><div className="about-copy" data-reveal><p className="eyebrow dark">MENGAPA KAMI</p><h2>Tentang Rencang Resik</h2><p>Rencang Resik hadir sebagai teman yang membantu menjaga kebersihan dan kenyamanan rumah, kantor, kost, serta ruang usaha Anda.</p><p>Kami percaya lingkungan yang bersih memberikan energi positif dan kualitas hidup yang lebih baik. Dengan tim berpengalaman dan proses kerja yang rapi, kami siap menjadi rencang andalan Anda.</p></div><div className="values">{[<Value key="v1" icon={Check} title="Praktis &amp; Anti Ribet" text="Pesan mudah, jadwal fleksibel, dan layanan langsung ke lokasi Anda." />, <Value key="v2" icon={Star} title="Terpercaya &amp; Profesional" text="Tim terlatih dengan standar kerja yang konsisten dan hasil maksimal." />, <Value key="v3" icon={MapPin} title="Area Layanan Luas" text="Hadir di Solo Raya dan Daerah Istimewa Yogyakarta." />].map((el, i) => <div key={i} data-reveal>{el}</div>)}</div></section>
 
