@@ -64,7 +64,11 @@ h1, h2, h3, h4 { font-family: inherit; }
 .section-heading { max-width: 580px; margin: 0 auto 56px; }
 .section-heading h2 { font-size: clamp(28px, 4vw, 42px); letter-spacing: -1.5px; margin-bottom: 14px; color: var(--deep); line-height: 1.1; }
 .section-heading > p:last-child { color: var(--muted); font-size: 14px; line-height: 1.7; }
-.services-section .section-heading { text-align: left; margin-left: 0; margin-right: auto; }
+.services-heading-wrap { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; max-width: 1200px; margin: 0 auto 40px; }
+.services-heading-wrap .eyebrow.dark { color: var(--cyan); }
+.services-title { font-size: clamp(24px, 3.5vw, 36px); letter-spacing: -1px; color: var(--amber); font-weight: 800; margin: 0; line-height: 1.2; flex-shrink: 0; }
+.services-desc { color: var(--muted); font-size: 14px; line-height: 1.7; margin: 0; flex: 1; min-width: 260px; }
+.services-desc strong { color: var(--deep); }
 
 
 /* SERVICES */
@@ -231,7 +235,7 @@ footer { background: var(--deep); color: #fff; }
   .hero-proof { flex-wrap: wrap; gap: 8px 18px; }
   .section { padding: 64px 5%; }
   .section-heading { margin-bottom: 40px; }
-  .services-section .section-heading { text-align: left; }
+  .services-heading-wrap { flex-direction: column; align-items: flex-start; }
   .service-grid { grid-template-columns: 1fr; gap: 14px; }
   .service-card { min-height: 0; }
   .about-section { padding: 64px 6%; }
