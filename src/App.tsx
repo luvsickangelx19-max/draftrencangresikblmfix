@@ -42,33 +42,48 @@ const serviceCategories = [
     img: '/kebersihanicon.png',
     title: 'Kebersihan Rumah & Hunian',
     items: [
-      { img: '/dailyicon.png', title: 'Daily Cleaning (Sekali Datang)', text: 'Solusi praktis kebersihan harian tanpa terikat kontrak. Layanan bersih-bersih standar yang cepat dan efisien (menyapu, mengepel, lap debu, merapikan kasur, dan sikat kamar mandi). Cocok untuk Anda yang sibuk dan ingin rumah atau apartemen langsung rapi dalam sekejap.' },
-      { img: '/deepcleaningicon.png', title: 'Deep Cleaning / Borongan', text: 'Pembersihan menyeluruh skala besar untuk hasil higienis maksimal. Layanan pembersihan total secara mendetail ke sudut yang jarang tersentuh. Ideal untuk kerak kamar mandi menahun, pasca-renovasi, pindahan rumah, hingga persiapan acara besar.' },
-      { img: '/cleaninglanggananicon.png', title: 'Cleaning Langganan (Subscription)', text: 'Rumah selalu bersih konsisten dengan harga jauh lebih hemat! Solusi untuk Anda yang butuh jasa pembersihan rutin berkala (misal: seminggu 2x atau sebulan 4x). Nikmati jadwal prioritas, tim tetap yang tepercaya, dan paket harga lebih terjangkau.' },
-      { img: '/kosicon.png', title: 'Paket Kos (Pindahan / Serah Terima)', text: 'Solusi praktis dan hemat khusus anak kos dan pemilik persewaan. Layanan kilat untuk membersihkan kamar kos secara total. Cocok bagi penghuni baru yang ingin kamarnya steril, maupun penghuni lama yang akan pindah (checkout) agar serah terima kunci berjalan lancar.' },
+      { img: '/dailyicon.png', title: 'Daily Cleaning (Sekali Datang)', text: '*Solusi praktis kebersihan harian tanpa terikat kontrak.* Layanan bersih-bersih standar yang cepat dan efisien (menyapu, mengepel, lap debu, merapikan kasur, dan sikat kamar mandi). Cocok untuk Anda yang sibuk dan ingin rumah atau apartemen langsung rapi dalam sekejap.' },
+      { img: '/deepcleaningicon.png', title: 'Deep Cleaning / Borongan', text: '*Pembersihan menyeluruh skala besar untuk hasil higienis maksimal.* Layanan pembersihan total secara mendetail ke sudut yang jarang tersentuh. Ideal untuk kerak kamar mandi menahun, pasca-renovasi, pindahan rumah, hingga persiapan acara besar.' },
+      { img: '/cleaninglanggananicon.png', title: 'Cleaning Langganan (Subscription)', text: '*Rumah selalu bersih konsisten dengan harga jauh lebih hemat!* Solusi untuk Anda yang butuh jasa pembersihan rutin berkala (misal: seminggu 2x atau sebulan 4x). Nikmati jadwal prioritas, tim tetap yang tepercaya, dan paket harga lebih terjangkau.' },
+      { img: '/kosicon.png', title: 'Paket Kos (Pindahan / Serah Terima)', text: '*Solusi praktis dan hemat khusus anak kos dan pemilik persewaan.* Layanan kilat untuk membersihkan kamar kos secara total. Cocok bagi penghuni baru yang ingin kamarnya steril, maupun penghuni lama yang akan pindah (checkout) agar serah terima kunci berjalan lancar.' },
     ],
   },
   {
     img: '/perawatanfurnituricon.png',
     title: 'Perawatan Furnitur & Estetik',
     items: [
-      { img: '/laundrysofaicon.png', title: 'Laundry Sofa & Bed', text: 'Usir tungau, debu, dan noda membandel dari tempat tidur & sofa favorit. Kami membersihkan sofa, kasur, bantal, hingga karpet dengan teknik cuci-sikat-vakum-pengeringan menggunakan cairan pembersih aman. Efektif membunuh bakteri dan tungau penyebab gatal atau alergi.' },
-      { img: '/poleslantaiicon.png', title: 'Poles Lantai', text: 'Kembalikan kilau mewah dan keindahan lantai hunian Anda. Layanan restorasi dan perawatan untuk berbagai jenis lantai — marmer, granit, teraso, hingga keramik. Kami mengangkat kusam, menyamarkan goresan halus, dan memberikan proteksi agar lantai kembali berkilau alami.' },
-      { img: '/repainticon.png', title: 'Repaint (Pengecatan Ulang)', text: 'Segarkan kembali estetika dinding rumah dengan warna baru. Layanan pengecatan ulang untuk dinding interior maupun eksterior yang kusam, mengelupas, atau berjamur. Tim kami bekerja rapi, melindungi furnitur dari cipratan, dan memberikan hasil akhir halus serta tahan lama.' },
+      { img: '/laundrysofaicon.png', title: 'Laundry Sofa & Bed', text: '*Usir tungau, debu, dan noda membandel dari tempat tidur & sofa favorit.* Kami membersihkan sofa, kasur, bantal, hingga karpet dengan teknik cuci-sikat-vakum-pengeringan menggunakan cairan pembersih aman. Efektif membunuh bakteri dan tungau penyebab gatal atau alergi.' },
+      { img: '/poleslantaiicon.png', title: 'Poles Lantai', text: '*Kembalikan kilau mewah dan keindahan lantai hunian Anda.* Layanan restorasi dan perawatan untuk berbagai jenis lantai — marmer, granit, teraso, hingga keramik. Kami mengangkat kusam, menyamarkan goresan halus, dan memberikan proteksi agar lantai kembali berkilau alami.' },
+      { img: '/repainticon.png', title: 'Repaint (Pengecatan Ulang)', text: '*Segarkan kembali estetika dinding rumah dengan warna baru.* Layanan pengecatan ulang untuk dinding interior maupun eksterior yang kusam, mengelupas, atau berjamur. Tim kami bekerja rapi, melindungi furnitur dari cipratan, dan memberikan hasil akhir halus serta tahan lama.' },
     ],
   },
   {
     img: '/sanitasiicon.png',
     title: 'Sanitasi & Perawatan Fasilitas',
     items: [
-      { img: '/cuciacicon.png', title: 'Service & Cuci AC', text: 'Udara rumah lebih sejuk, bersih, dan hemat konsumsi listrik. Perawatan AC berkala mulai dari pencucian filter, pembersihan evaporator, hingga pengecekan tekanan freon oleh teknisi ahli. AC yang bersih memastikan sirkulasi udara tetap sehat untuk keluarga.' },
-      { img: '/tandonicon.png', title: 'Kuras Tandon & Ground Tank', text: 'Jaminan air bersih, higienis, dan bebas lumut untuk konsumsi keluarga. Layanan pengurasan dan pembersihan total tangki air dari endapan lumpur, lumut, kuman, dan jentik nyamuk. Kami memastikan aliran air kembali jernih dan aman untuk kebutuhan sehari-hari.' },
-      { img: '/foggingicon.png', title: 'Fogging (Disinfektan & Pembasmi Hama)', text: 'Sterilisasi total untuk udara dan ruangan yang sehat serta bebas kuman. Layanan pengasapan menggunakan cairan disinfektan premium yang aman bagi manusia dan hewan peliharaan. Efektif membunuh 99.9% bakteri/virus serta membasmi serangga pengganggu di sudut ruangan.' },
+      { img: '/cuciacicon.png', title: 'Service & Cuci AC', text: '*Udara rumah lebih sejuk, bersih, dan hemat konsumsi listrik.* Perawatan AC berkala mulai dari pencucian filter, pembersihan evaporator, hingga pengecekan tekanan freon oleh teknisi ahli. AC yang bersih memastikan sirkulasi udara tetap sehat untuk keluarga.' },
+      { img: '/tandonicon.png', title: 'Kuras Tandon & Ground Tank', text: '*Jaminan air bersih, higienis, dan bebas lumut untuk konsumsi keluarga.* Layanan pengurasan dan pembersihan total tangki air dari endapan lumpur, lumut, kuman, dan jentik nyamuk. Kami memastikan aliran air kembali jernih dan aman untuk kebutuhan sehari-hari.' },
+      { img: '/foggingicon.png', title: 'Fogging (Disinfektan & Pembasmi Hama)', text: '*Sterilisasi total untuk udara dan ruangan yang sehat serta bebas kuman.* Layanan pengasapan menggunakan cairan disinfektan premium yang aman bagi manusia dan hewan peliharaan. Efektif membunuh 99.9% bakteri/virus serta membasmi serangga pengganggu di sudut ruangan.' },
     ],
   },
 ];
 
 const allServiceTitles = serviceCategories.flatMap((c) => c.items.map((i) => i.title));
+
+function BoldText({ text }: { text: string }) {
+  const parts = text.split(/(\*[^*]+\*)/g);
+  return (
+    <>
+      {parts.map((part, i) =>
+        part.startsWith('*') && part.endsWith('*') ? (
+          <strong key={i}>{part.slice(1, -1)}</strong>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </>
+  );
+}
 
 const areas = [
   { name: 'SOLO RAYA', sub: 'Kota Surakarta dan area di sekitarnya', color: 'blue', places: ['Kota Solo', 'Sukoharjo', 'Karanganyar', 'Boyolali', 'Klaten', 'Wonogiri'] },
@@ -166,7 +181,7 @@ Terima kasih.`;
           <div className="hero-copy"><p className="eyebrow">JASA KEBERSIHAN &amp; PERAWATAN</p><img className="hero-title-image" src="/polos_remove_bg.webp" alt="Rencang Resik" /><p className="hero-lead"><span className="lead-main">Jasa Cleaning &amp; Home Service</span><span className="lead-area">Area Solo Raya &amp; Yogyakarta</span></p><div className="hero-slogan"><p className="hero-text">{sloganText}<span className="type-cursor" /></p></div><div className="hero-actions"><a className="button primary" href="#booking">Booking Sekarang <ArrowRight size={17} /></a><a className="button ghost" href="#layanan">Lihat Layanan</a></div><div className="hero-proof"><span><Check size={13} /> Aman &amp; Terpercaya</span><span><Check size={13} /> Tim Profesional</span><span><Check size={13} /> Harga Bersahabat</span></div></div>
         </section>
 
-        <section className="section services-section" id="layanan" ref={servicesRef} data-num="01"><div className="section-heading" data-reveal><p className="eyebrow dark">LAYANAN KAMI</p><h2>Layanan Terbaik dari Rencang Resik</h2><p>Rumah Bersih, Sehat, dan Nyaman Tanpa Ribet! Silakan pilih jenis layanan yang sesuai dengan kebutuhan hunian Anda saat ini. Tim profesional kami siap meluncur dengan peralatan lengkap.</p></div>{serviceCategories.map((cat) => <div className="service-category" key={cat.title} data-reveal><div className="category-header"><span className="category-icon"><img src={cat.img} alt={cat.title} /></span><h3>{cat.title}</h3></div><div className="service-grid">{cat.items.map((item) => <article className="service-card" key={item.title} data-reveal><div className="icon-box"><img src={item.img} alt={item.title} /></div><h4>{item.title}</h4><p>{item.text}</p></article>)}</div></div>)}</section>
+        <section className="section services-section" id="layanan" ref={servicesRef} data-num="01"><div className="section-heading" data-reveal><p className="eyebrow dark">LAYANAN KAMI</p><h2>Layanan Terbaik dari Rencang Resik</h2><p><BoldText text="*Rumah Bersih, Sehat, dan Nyaman Tanpa Ribet!* Silakan pilih jenis layanan yang sesuai dengan kebutuhan hunian Anda saat ini. Tim profesional kami siap meluncur dengan peralatan lengkap." /></p></div>{serviceCategories.map((cat) => <div className="service-category" key={cat.title} data-reveal><div className="category-header"><span className="category-icon"><img src={cat.img} alt={cat.title} /></span><h3>{cat.title}</h3></div><div className="service-grid">{cat.items.map((item) => <article className="service-card" key={item.title} data-reveal><div className="icon-box"><img src={item.img} alt={item.title} /></div><h4>{item.title}</h4><p><BoldText text={item.text} /></p></article>)}</div></div>)}</section>
 
         <section className="section about-section" id="tentang" ref={aboutRef}><div className="about-copy" data-reveal><p className="eyebrow dark">MENGAPA KAMI</p><h2>Tentang Rencang Resik</h2><p>Rencang Resik hadir sebagai teman yang membantu menjaga kebersihan dan kenyamanan rumah, kantor, kost, serta ruang usaha Anda.</p><p>Kami percaya lingkungan yang bersih memberikan energi positif dan kualitas hidup yang lebih baik. Dengan tim berpengalaman dan proses kerja yang rapi, kami siap menjadi rencang andalan Anda.</p></div><div className="values">{[<Value key="v1" icon={Check} title="Praktis &amp; Anti Ribet" text="Pesan mudah, jadwal fleksibel, dan layanan langsung ke lokasi Anda." />, <Value key="v2" icon={Star} title="Terpercaya &amp; Profesional" text="Tim terlatih dengan standar kerja yang konsisten dan hasil maksimal." />, <Value key="v3" icon={MapPin} title="Area Layanan Luas" text="Hadir di Solo Raya dan Daerah Istimewa Yogyakarta." />].map((el, i) => <div key={i} data-reveal>{el}</div>)}</div></section>
 
