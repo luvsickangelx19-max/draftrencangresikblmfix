@@ -116,7 +116,7 @@ function BoldText({ text }: { text: string }) {
 }
 
 const areas = [
-  { name: 'SOLO RAYA', sub: 'Kota Surakarta dan area di sekitarnya', color: 'blue', places: ['Kota Solo', 'Sukoharjo', 'Karanganyar', 'Boyolali', 'Klaten', 'Wonogiri'] },
+  { name: 'SOLO RAYA', sub: 'Kota Surakarta dan area di sekitarnya', color: 'blue', places: ['Kota Solo', 'Sukoharjo', 'Karanganyar', 'Boyolali', 'Klaten', 'Wonogiri', 'Sragen'] },
   { name: 'DIY, YOGYAKARTA', sub: 'Yogyakarta dan wilayah sekitarnya', color: 'mint', places: ['Kota Yogyakarta', 'Sleman', 'Bantul', 'Kulon Progo', 'Gunungkidul'] },
 ];
 
