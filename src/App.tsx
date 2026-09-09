@@ -222,14 +222,19 @@ function App() {
       setShowIosInstructions(true);
       return;
     }
-    if (!deferredPrompt) {
-      setInstallMessage('Instalasi PWA belum tersedia di browser ini. Kamu tetap bisa menggunakan website seperti biasa.');
+    if (deferredPrompt) {
+      await deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      setDeferredPrompt(null);
+      setInstallMessage(outcome === 'accepted' ? 'Rencang Resik sedang dipasang di perangkatmu.' : 'Instalasi dibatalkan. Kamu bisa mencobanya lagi kapan saja.');
       return;
     }
-    await deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    setDeferredPrompt(null);
-    setInstallMessage(outcome === 'accepted' ? 'Rencang Resik sedang dipasang di perangkatmu.' : 'Instalasi dibatalkan. Kamu bisa mencobanya lagi kapan saja.');
+    const isDesktop = !isIos && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isDesktop) {
+      setInstallMessage('Untuk memasang: klik ikon Install (⊕) di address bar browser, atau menu ⋙ Install Rencang Resik.');
+    } else {
+      setInstallMessage('Instalasi PWA belum tersedia di browser ini. Kamu tetap bisa menggunakan website seperti biasa.');
+    }
   };
 
   const selectedDay = form.date ? new Intl.DateTimeFormat('id-ID', { weekday: 'long' }).format(new Date(`${form.date}T00:00:00`)) : '';
