@@ -31,6 +31,8 @@ h1, h2, h3, h4 { font-family: inherit; }
 .nav-links a:hover { color: var(--cyan); }
 .nav-cta { display: inline-flex; align-items: center; gap: 7px; padding: 11px 18px; background: var(--primary); border-radius: 6px; color: #fff; font-size: 12px; font-weight: 700; white-space: nowrap; transition: background .2s, transform .2s; }
 .nav-cta:hover { background: #009ec6; transform: translateY(-1px); }
+.nav-install { display: inline-flex; align-items: center; gap: 7px; border: 0; background: transparent; color: var(--slate); font-size: 13px; font-weight: 600; cursor: pointer; transition: color .2s; }
+.nav-install:hover { color: var(--cyan); }
 .mobile-menu { display: none; background: none; border: 0; color: var(--deep); cursor: pointer; }
 
 /* HERO */
@@ -58,6 +60,22 @@ h1, h2, h3, h4 { font-family: inherit; }
 .button.ghost:hover { border-color: rgba(255,255,255,.6); background: rgba(255,255,255,.12); }
 .hero-proof { display: flex; flex-direction: column; gap: 4px; color: rgba(255,255,255,.9); font-size: 12px; }
 .hero-proof span { display: flex; align-items: center; gap: 6px; }
+
+/* PWA INSTALL */
+.pwa-promo { max-width: 1200px; margin: 0 auto; padding: 28px 8%; display: flex; align-items: center; gap: 18px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--pale); }
+.pwa-promo-icon { width: 52px; height: 52px; display: grid; place-items: center; flex-shrink: 0; border-radius: 12px; color: var(--primary); background: #fff; }
+.pwa-promo-copy { flex: 1; }
+.pwa-promo-copy h2 { margin: 0 0 6px; color: var(--deep); font-size: clamp(18px, 2.4vw, 25px); line-height: 1.2; }
+.pwa-promo-copy p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.pwa-install-button { border: 0; cursor: pointer; white-space: nowrap; }
+.pwa-install-message { flex-basis: 100%; margin: 0; color: var(--mint); font-size: 12px; }
+.pwa-mobile-banner { display: none; }
+.pwa-modal-backdrop { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 24px; background: rgba(18,59,74,.55); }
+.pwa-modal { width: min(100%, 380px); padding: 28px; border-radius: 12px; background: #fff; box-shadow: 0 24px 60px rgba(0,0,0,.2); }
+.pwa-modal-icon { width: 44px; height: 44px; display: grid; place-items: center; margin-bottom: 16px; border-radius: 10px; color: var(--primary); background: var(--pale); }
+.pwa-modal h2 { margin-bottom: 18px; color: var(--deep); font-size: 21px; line-height: 1.25; }
+.pwa-modal ol { margin: 0 0 24px; padding-left: 22px; color: var(--slate); font-size: 14px; line-height: 1.8; }
+.pwa-modal .button { border: 0; cursor: pointer; }
 
 /* SECTIONS */
 .section { padding: 96px 8%; position: relative; }
@@ -242,7 +260,16 @@ footer { background: #4295DD; color: #fff; }
   .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #fff; padding: 20px 5%; box-shadow: 0 12px 20px rgba(10,46,56,.1); flex-direction: column; align-items: flex-start; gap: 18px; }
   .nav-links.open { display: flex; }
   .nav-links a::after { display: none; }
+  .nav-install { padding: 0; }
   .nav-cta { display: none; }
+  .pwa-promo { margin: 0 5%; padding: 24px 0; flex-wrap: wrap; }
+  .pwa-promo-copy { min-width: 0; }
+  .pwa-install-button { width: 100%; justify-content: center; }
+  .pwa-mobile-banner { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 49; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: #fff; box-shadow: 0 10px 28px rgba(18,59,74,.16); }
+  .pwa-mobile-banner div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .pwa-mobile-banner strong { color: var(--deep); font-size: 12px; }
+  .pwa-mobile-banner span { color: var(--muted); font-size: 11px; }
+  .pwa-mobile-banner button { display: inline-flex; align-items: center; gap: 5px; flex-shrink: 0; border: 0; border-radius: 6px; padding: 10px 12px; color: #fff; background: var(--amber); font-size: 11px; font-weight: 700; cursor: pointer; }
   .hero { padding: 8px 0px; gap: 2px; }
   .hero-proof { flex-wrap: wrap; gap: 8px 18px; }
   .section { padding: 64px 5%; }
@@ -266,4 +293,8 @@ footer { background: #4295DD; color: #fff; }
 
 @media (max-width: 420px) {
   .radio-grid { grid-template-columns: 1fr; }
+  .pwa-promo-icon { width: 44px; height: 44px; }
+  .pwa-promo-copy h2 { font-size: 17px; }
+  .pwa-mobile-banner { align-items: flex-start; }
+  .pwa-mobile-banner button { padding: 9px; }
 }

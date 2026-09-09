@@ -4,11 +4,15 @@ import {
   ArrowRight,
   ChevronDown,
   Check,
+  Download,
   Mail,
   MapPin,
   Menu,
   MessageCircle,
+  MonitorSmartphone,
   Phone,
+  Share,
+  Smartphone,
   X,
 } from 'lucide-react';
 
@@ -145,6 +149,15 @@ function useReveal<T extends HTMLElement>() {
   return ref;
 }
 
+interface BeforeInstallPromptEvent extends Event {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>;
+}
+
+function isIOSDevice(): boolean {
+  return typeof navigator !== 'undefined' && (/iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
+}
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [sent, setSent] = useState(false);
@@ -153,6 +166,35 @@ function App() {
   const [form, setForm] = useState({ name: '', phone: '', service: '', date: '', address: '', time: '', note: '' });
   const [scrollProgress, setScrollProgress] = useState(0);
   const [winHeight, setWinHeight] = useState(typeof window !== 'undefined' ? window.innerHeight : 800);
+  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [installMessage, setInstallMessage] = useState('');
+  const [showIosInstructions, setShowIosInstructions] = useState(false);
+  const [isInstalled, setIsInstalled] = useState(false);
+
+  useEffect(() => {
+    const standaloneQuery = window.matchMedia('(display-mode: standalone)');
+    const isIos = isIOSDevice();
+    const updateInstalledState = () => setIsInstalled(standaloneQuery.matches || Boolean((navigator as Navigator & { standalone?: boolean }).standalone));
+    const onBeforeInstallPrompt = (event: Event) => {
+      event.preventDefault();
+      setDeferredPrompt(event as BeforeInstallPromptEvent);
+    };
+    const onAppInstalled = () => {
+      setIsInstalled(true);
+      setDeferredPrompt(null);
+      setInstallMessage('Rencang Resik sudah terpasang di perangkatmu.');
+    };
+    updateInstalledState();
+    window.addEventListener('beforeinstallprompt', onBeforeInstallPrompt);
+    window.addEventListener('appinstalled', onAppInstalled);
+    standaloneQuery.addEventListener?.('change', updateInstalledState);
+    if (isIos && !standaloneQuery.matches) setInstallMessage('');
+    return () => {
+      window.removeEventListener('beforeinstallprompt', onBeforeInstallPrompt);
+      window.removeEventListener('appinstalled', onAppInstalled);
+      standaloneQuery.removeEventListener?.('change', updateInstalledState);
+    };
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -172,6 +214,23 @@ function App() {
   const mascotTop = 80 + scrollProgress * (winHeight - 180);
 
   const sloganText = useTypewriter(SLOGAN);
+
+  const installPwa = async () => {
+    if (isInstalled) return;
+    const isIos = isIOSDevice();
+    if (isIos) {
+      setShowIosInstructions(true);
+      return;
+    }
+    if (!deferredPrompt) {
+      setInstallMessage('Instalasi PWA belum tersedia di browser ini. Kamu tetap bisa menggunakan website seperti biasa.');
+      return;
+    }
+    await deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    setDeferredPrompt(null);
+    setInstallMessage(outcome === 'accepted' ? 'Rencang Resik sedang dipasang di perangkatmu.' : 'Instalasi dibatalkan. Kamu bisa mencobanya lagi kapan saja.');
+  };
 
   const selectedDay = form.date ? new Intl.DateTimeFormat('id-ID', { weekday: 'long' }).format(new Date(`${form.date}T00:00:00`)) : '';
   const heroRef = useReveal<HTMLDivElement>();
@@ -206,7 +265,7 @@ Terima kasih.`;
         <a href="#beranda"><img className="navbar-logo" src="/Logo_.png" alt="Rencang Resik" /></a>
         <button className="mobile-menu" aria-label="Buka menu" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button>
         <nav className={menuOpen ? 'nav-links open' : 'nav-links'}>
-          <a href="#beranda" onClick={() => setMenuOpen(false)}>Beranda</a><a href="#layanan" onClick={() => setMenuOpen(false)}>Layanan</a><a href="#tentang" onClick={() => setMenuOpen(false)}>Tentang Rencang Resik</a><a href="#area" onClick={() => setMenuOpen(false)}>Area Layanan</a><a href="#booking" onClick={() => setMenuOpen(false)}>Booking</a><a href="#kontak" onClick={() => setMenuOpen(false)}>Kontak</a>
+          <a href="#beranda" onClick={() => setMenuOpen(false)}>Beranda</a><a href="#layanan" onClick={() => setMenuOpen(false)}>Layanan</a><a href="#tentang" onClick={() => setMenuOpen(false)}>Tentang Rencang Resik</a><a href="#area" onClick={() => setMenuOpen(false)}>Area Layanan</a><a href="#booking" onClick={() => setMenuOpen(false)}>Booking</a><a href="#kontak" onClick={() => setMenuOpen(false)}>Kontak</a>{!isInstalled && <button className="nav-install" type="button" onClick={() => { setMenuOpen(false); void installPwa(); }}><Download size={14} /> Download PWA</button>}
         </nav>
         <a className="nav-cta" href="#booking"><MessageCircle size={14} /> Konsultasi Gratis</a>
       </header>
@@ -215,6 +274,8 @@ Terima kasih.`;
         <section className="hero" id="beranda" ref={heroRef}>
           <div className="hero-copy"><p className="eyebrow">JASA KEBERSIHAN &amp; PERAWATAN</p><img className="hero-title-image" src="/polos_remove_bg.webp" alt="Rencang Resik" /><p className="hero-lead"><span className="lead-main">Jasa Cleaning &amp; Home Service</span><span className="lead-area">Area Solo Raya &amp; Yogyakarta</span></p><div className="hero-slogan"><p className="hero-text">{sloganText}<span className="type-cursor" /></p></div><div className="hero-actions"><a className="button primary" href="#booking">Booking Sekarang <ArrowRight size={17} /></a><a className="button ghost" href="#layanan">Lihat Layanan</a></div><div className="hero-proof"><span><Check size={13} /> Aman &amp; Terpercaya</span><span><Check size={13} /> Tim Profesional</span><span><Check size={13} /> Harga Bersahabat</span></div></div>
         </section>
+
+        {!isInstalled && <section className="pwa-promo" aria-labelledby="pwa-promo-title"><div className="pwa-promo-icon" aria-hidden="true"><MonitorSmartphone size={28} /></div><div className="pwa-promo-copy"><h2 id="pwa-promo-title">Ingin Lebih Mudah Booking? Yuk Instal PWA sekarang!</h2><p>Instal Rencang Resik di perangkatmu untuk akses booking yang lebih cepat dan praktis.</p></div><button className="button primary pwa-install-button" type="button" onClick={() => void installPwa()}><Download size={17} /> Instal PWA</button>{installMessage && <p className="pwa-install-message" role="status">{installMessage}</p>}</section>}
 
         <section className="section services-section" id="layanan" ref={servicesRef} ><div className="services-heading-wrap" data-reveal><h2 className="services-title">Layanan Terbaik dari Rencang Resik</h2><p className="services-desc"><BoldText text="*Rumah Bersih, Sehat, dan Nyaman Tanpa Ribet!* Silakan pilih jenis layanan yang sesuai dengan kebutuhan hunian Anda saat ini. Tim profesional kami siap meluncur dengan peralatan lengkap." /></p></div><div className="services-reveal-btn-wrap" data-reveal><button className={`services-reveal-btn${servicesVisible ? ' active' : ''}`} onClick={() => { const next = !servicesVisible; setServicesVisible(next); if (next) setTimeout(() => servicesInnerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80); }} aria-expanded={servicesVisible} aria-controls="services-list"><span className="services-reveal-btn-text">{servicesVisible ? 'Sembunyikan Layanan' : 'Yuk Lihat Layanan Kami'}</span><ChevronDown size={20} className="services-reveal-btn-icon" /></button></div><div id="services-list" ref={servicesInnerRef} className="services-list-wrapper"><AnimatePresence initial={false}>{servicesVisible && <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="services-list-inner">{serviceCategories.map((cat, catIdx) => <motion.div className="service-category" key={cat.title} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: catIdx * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}><div className="category-header"><span className="category-icon">{cat.icon ? <cat.icon size={32} /> : <img src={cat.img} alt={cat.title} />}</span><h3>{cat.title}</h3></div><div className="service-grid">{cat.items.map((item, itemIdx) => <motion.article className="service-card" key={item.title} initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.45, delay: catIdx * 0.15 + itemIdx * 0.12 + 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}><div className="icon-box">{item.icon ? <item.icon size={38} /> : <img src={item.img} alt={item.title} />}</div><h4>{item.title}</h4><p><BoldText text={item.text} /></p></motion.article>)}</div></motion.div>)}</motion.div>}</AnimatePresence></div></section>
 
@@ -226,6 +287,9 @@ Terima kasih.`;
 
         <section className="section social-section" ref={socialRef}><div className="section-heading"  data-reveal><h2 className="social-heading-orange">Ikuti Rencang Resik</h2><p>Ikuti Rencang Resik untuk mendapatkan info layanan, promo menarik, penawaran spesial, dan update terbaru dari kami</p></div><div className="social-grid"><Social type="instagram" title="Instagram" handle="@rencangresik" href="https://www.instagram.com/rencangresik?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" /><Social type="tiktok" title="TikTok" handle="@rencangresiksolo" href="https://www.tiktok.com/@rencangresiksolo" /></div></section>
       </main>
+
+      {!isInstalled && (deferredPrompt || isIOSDevice()) && <div className="pwa-mobile-banner"><div><strong>Ingin lebih mudah booking?</strong><span>Yuk Instal PWA sekarang!</span></div><button type="button" onClick={() => void installPwa()}><Smartphone size={16} /> Instal PWA</button></div>}
+      {showIosInstructions && <div className="pwa-modal-backdrop" role="presentation" onClick={() => setShowIosInstructions(false)}><section className="pwa-modal" role="dialog" aria-modal="true" aria-labelledby="ios-install-title" onClick={(event) => event.stopPropagation()}><div className="pwa-modal-icon"><Share size={22} /></div><h2 id="ios-install-title">Pasang Rencang Resik di iPhone/iPad</h2><ol><li>Tap tombol Share di browser.</li><li>Pilih “Add to Home Screen”.</li><li>Tap “Add”.</li></ol><button className="button primary" type="button" onClick={() => setShowIosInstructions(false)}>Mengerti</button></section></div>}
 
       <footer id="kontak"><div className="footer-contact"><div><h2>Hubungi Rencang Resik</h2><p><strong>Capek Bersih-Bersih Rumah Sendiri? Biar Kami yang Tangani!</strong></p><p>Dari <em>Deep Cleaning</em>, perawatan sofa/kasur, hingga pembersihan rutin harian, <strong>Rencang Resik</strong> siap memberikan hasil terbaik dan bergaransi. Jadwalkan waktu pembersihan Anda hari ini sebelum kuota mingguan kami penuh!</p><p>Hubungi tim Admin kami via WhatsApp atau Telepon untuk respon cepat.</p><p>Kami siap melayani Anda!</p><p><strong>Jam Operasional</strong></p><p>Senin–Sabtu, pukul 08.00–17.00 (di luar itu admin slow respon)</p></div><div className="whatsapp-card"><div className="wa-head"><img src="/pngwing.com_(5)_(1).png" alt="WhatsApp" /><span>CS Rencang Resik</span></div><strong>0822 4548 9977</strong><a href="https://wa.me/6282245489977">Chat Admin (CS) WhatsApp Sekarang <ArrowRight size={13} /></a></div></div><div className="footer-bottom"><div><a className="footer-brand" href="#beranda"><img className="footer-logo" src="/Logo_.png" alt="Rencang Resik" /></a><p>Konco Apik Supoyo Papan Panggonan Dadi Resik</p><small>© 2026 Rencang Resik. All rights reserved.</small></div><div><h4>Tautan Cepat</h4><a href="#layanan">Layanan</a><a href="#tentang">Tentang Kami</a><a href="#area">Area Layanan</a><a href="#booking">Booking</a></div><div><h4>Kontak &amp; Layanan</h4><span><MapPin size={13} /> Solo Raya &amp; Yogyakarta</span><span><Mail size={13} /> rencangresiksolo@gmail.com</span><a className="footer-wa" href="https://wa.me/6282245489977"><Phone size={13} /> Chat WhatsApp</a></div></div></footer>
 
